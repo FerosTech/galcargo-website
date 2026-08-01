@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
-import ThemeSwitcher from './components/ThemeSwitcher';
 import Hero from './components/Hero';
 import Calculator from './components/Calculator';
 import Services from './components/Services';
@@ -47,11 +46,12 @@ export default function App() {
 
   return (
     <div className="app-main-wrapper">
-      {/* Live Interactive UI Theme Switcher Bar */}
-      <ThemeSwitcher currentTheme={theme} setTheme={setTheme} />
-
-      {/* Header Navigation */}
-      <Navbar onOpenQuote={handleOpenQuote} />
+      {/* Unified Header with Integrated Navbar & Theme Switcher */}
+      <Navbar 
+        currentTheme={theme} 
+        setTheme={setTheme} 
+        onOpenQuote={handleOpenQuote} 
+      />
 
       {/* Hero Presentation */}
       <Hero 

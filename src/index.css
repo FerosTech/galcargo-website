@@ -205,96 +205,123 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   3. Floating Theme Switcher Panel (Live Interactive UI Toggle)
+   3. Unified Sticky Site Header & Integrated Theme Switcher
    -------------------------------------------------------------------------- */
-.theme-switcher-bar {
-  position: fixed;
-  top: 12px;
-  right: 12px;
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  padding: 8px 14px;
-  border-radius: 40px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--border-color);
+  transform: translateZ(0);
+  will-change: background-color, border-color;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.theme-switcher-title {
-  font-size: 0.8rem;
+/* Top Utility Strip */
+.top-header-strip {
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px 24px;
+}
+
+.top-header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.top-info-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.status-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+/* Theme Switcher Inline Row */
+.theme-switcher-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-switcher-label {
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-muted);
   display: flex;
   align-items: center;
   gap: 6px;
-  white-space: nowrap;
 }
 
-.theme-options-list {
+.theme-pills-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
-.theme-btn {
+.theme-pill-btn {
   border: 1px solid transparent;
   background: transparent;
-  padding: 4px 10px;
+  padding: 3px 10px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--text-muted);
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease;
+  gap: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
 }
 
-.theme-btn:hover {
+.theme-pill-btn:hover {
   color: var(--text-main);
   background: rgba(255, 255, 255, 0.08);
 }
 
-.theme-btn.active {
+.theme-pill-btn.active {
   background: var(--accent-primary);
   color: #ffffff;
-  box-shadow: 0 0 12px var(--accent-glow);
+  box-shadow: 0 0 10px var(--accent-glow);
 }
 
-.theme-dot {
-  width: 10px;
-  height: 10px;
+.theme-pill-dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
 }
 
-/* --------------------------------------------------------------------------
-   4. Header & Navigation Component
-   -------------------------------------------------------------------------- */
-.navbar {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 900;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+/* Main Navbar Row */
+.main-navbar-row {
+  padding: 10px 0;
 }
 
 .navbar-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -309,7 +336,7 @@ button, input, select, textarea {
 }
 
 .brand-logo-img {
-  height: 46px;
+  height: 44px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px var(--accent-glow));
@@ -321,7 +348,7 @@ button, input, select, textarea {
 }
 
 .brand-name {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -340,17 +367,16 @@ button, input, select, textarea {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   list-style: none;
 }
 
 .nav-link {
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
   transition: color 0.2s ease;
-  position: relative;
 }
 
 .nav-link:hover,
