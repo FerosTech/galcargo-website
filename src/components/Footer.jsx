@@ -12,7 +12,15 @@ export default function Footer({ onOpenQuote }) {
         {/* Column 1: Brand */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <a href="#" className="brand-logo-container">
-            <img src="/logo.png" alt="GalCargo Logo" className="brand-logo-img" />
+            <img 
+              src="./logo.png" 
+              alt="GalCargo Logo" 
+              className="brand-logo-img"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = './image_532900.jpg';
+              }}
+            />
             <div className="brand-text-block">
               <span className="brand-name">Гал Карго</span>
               <span className="brand-subtext">Multimodal Logistics</span>
