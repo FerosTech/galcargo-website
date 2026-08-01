@@ -1464,6 +1464,55 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
+   9b. Testimonials & B2B Client Reviews Section
+   -------------------------------------------------------------------------- */
+.testimonials-section {
+  padding: 90px 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.testimonial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: var(--shadow-main);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  border-color: var(--accent-light);
+  transform: translateY(-4px);
+}
+
+.stars-row {
+  display: flex;
+  gap: 4px;
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   10. Modal Windows (Quote & Tracking)
+   -------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
    10. Modal Windows (Quote & Tracking)
    -------------------------------------------------------------------------- */
 .modal-overlay {
@@ -2018,6 +2067,40 @@ button, input, select, textarea {
 
 /* Mobile Screen Tuning (< 768px and < 480px) */
 @media (max-width: 768px) {
+  /* Compact Floating Theme Button on Mobile */
+  .left-theme-trigger-btn {
+    top: auto !important;
+    bottom: 20px !important;
+    left: 16px !important;
+    transform: none !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    border-left: 1px solid var(--glass-border) !important;
+    justify-content: center !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .left-theme-trigger-btn .trigger-text {
+    display: none !important;
+  }
+
+  .left-theme-trigger-btn .trigger-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    font-size: 0.65rem;
+    padding: 2px 5px;
+    border-radius: 10px;
+    background: var(--accent-light);
+    color: #ffffff;
+  }
+
+  .left-theme-trigger-btn.open {
+    transform: translateY(100%) !important;
+  }
+
   .header-working-hours {
     display: none;
   }
@@ -2080,8 +2163,17 @@ button, input, select, textarea {
     min-width: 540px;
   }
 
+  .testimonials-section {
+    padding: 50px 16px;
+  }
+
   .testimonials-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .testimonial-card {
+    padding: 20px;
   }
 
   .contacts-grid {
@@ -2105,10 +2197,5 @@ button, input, select, textarea {
   .mode-tab-btn {
     width: 100%;
     justify-content: center;
-  }
-
-  .left-theme-trigger-btn {
-    bottom: 16px;
-    left: 16px;
   }
 }
