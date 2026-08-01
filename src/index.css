@@ -429,24 +429,23 @@ button, input, select, textarea {
   border-top: 1px solid var(--border-color);
 }
 
-/* Site Header */
+/* Site Header - 100% Solid Opaque to prevent background bleed */
 .site-header {
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   transform: translateZ(0);
 }
 
 .top-header-strip {
-  background: rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 6px 24px;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 8px 24px;
 }
 
 .top-header-container {
