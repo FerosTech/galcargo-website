@@ -1,15 +1,15 @@
-import React from 'react';
-import { Globe, ChevronDown } from 'lucide-react';
+import React, { useState } from 'react';
+import { ChevronDown, Globe } from 'lucide-react';
 
 const languages = [
-  { code: 'ua', label: 'UA', name: 'Українська', flag: '🇺🇦' },
-  { code: 'en', label: 'EN', name: 'English', flag: '🇬🇧' },
-  { code: 'pl', label: 'PL', name: 'Polski', flag: '🇵🇱' },
-  { code: 'ru', label: 'RU', name: 'Русский', flag: '🌐' },
+  { code: 'ua', name: 'Українська' },
+  { code: 'en', name: 'English' },
+  { code: 'pl', name: 'Polski' },
+  { code: 'ru', name: 'Русский' },
 ];
 
 export default function LanguageSwitcher({ currentLang, setLang }) {
-  const [dropdownOpen, setDropdownOpen] = React.useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const activeLangObj = languages.find((l) => l.code === currentLang) || languages[0];
 
@@ -21,8 +21,8 @@ export default function LanguageSwitcher({ currentLang, setLang }) {
         type="button"
         title="Змінити мову / Change language"
       >
-        <span className="lang-flag">{activeLangObj.flag}</span>
-        <span className="lang-code">{activeLangObj.label}</span>
+        <Globe size={14} style={{ color: 'var(--accent-light)' }} />
+        <span className="lang-name-display">{activeLangObj.name}</span>
         <ChevronDown size={12} className={`lang-chevron ${dropdownOpen ? 'open' : ''}`} />
       </button>
 
@@ -40,7 +40,6 @@ export default function LanguageSwitcher({ currentLang, setLang }) {
                 }}
                 type="button"
               >
-                <span className="lang-flag">{l.flag}</span>
                 <span>{l.name}</span>
               </button>
             ))}
