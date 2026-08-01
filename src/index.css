@@ -2065,8 +2065,41 @@ button, input, select, textarea {
   border-top: 1px solid var(--border-color);
 }
 
-/* Mobile Screen Tuning (< 768px and < 480px) */
+/* Mobile Screen Tuning (< 768px, < 640px, < 480px) */
 @media (max-width: 768px) {
+  /* Global Word Wrap Protection for Mobile */
+  h1, h2, h3, h4, p, span, div, input, button, a {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Top Utility Strip Alignment */
+  .top-header-strip {
+    padding: 6px 12px;
+  }
+
+  .top-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .top-info-left {
+    font-size: 0.68rem;
+    line-height: 1.25;
+    max-width: 65%;
+  }
+
+  .top-info-right {
+    margin-left: auto;
+  }
+
+  .header-working-hours {
+    display: none;
+  }
+
   /* Compact Floating Theme Button on Mobile */
   .left-theme-trigger-btn {
     top: auto !important;
@@ -2080,6 +2113,7 @@ button, input, select, textarea {
     border-left: 1px solid var(--glass-border) !important;
     justify-content: center !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+    z-index: 9999 !important;
   }
 
   .left-theme-trigger-btn .trigger-text {
@@ -2101,25 +2135,23 @@ button, input, select, textarea {
     transform: translateY(100%) !important;
   }
 
-  .header-working-hours {
-    display: none;
-  }
-  
-  .top-info-left {
-    font-size: 0.72rem;
-  }
-
   .hero-section {
-    padding: 30px 16px 60px;
+    padding: 24px 14px 50px 14px;
   }
 
   .hero-title {
-    font-size: 1.85rem;
-    line-height: 1.25;
+    font-size: 1.8rem;
+    line-height: 1.22;
   }
 
   .hero-description {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+  }
+
+  .hero-badge {
+    font-size: 0.78rem;
+    padding: 5px 12px;
+    max-width: 100%;
   }
 
   .hero-cta-group {
@@ -2133,14 +2165,37 @@ button, input, select, textarea {
     justify-content: center;
   }
 
+  /* Tracking Input Box Vertical Stacking on Mobile */
+  .tracking-box {
+    padding: 14px;
+    width: 100%;
+  }
+
+  .tracking-input-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .tracking-input {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 10px 12px;
+  }
+
+  .tracking-input-row .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
   .hero-stats-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    padding: 20px;
+    gap: 14px;
+    padding: 16px;
   }
 
   .stat-num {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .calc-row-2 {
@@ -2148,7 +2203,7 @@ button, input, select, textarea {
   }
 
   .calc-card {
-    padding: 20px;
+    padding: 16px;
   }
 
   .geography-grid {
@@ -2160,11 +2215,11 @@ button, input, select, textarea {
   }
 
   .comparison-table {
-    min-width: 540px;
+    min-width: 500px;
   }
 
   .testimonials-section {
-    padding: 50px 16px;
+    padding: 40px 14px;
   }
 
   .testimonials-grid {
@@ -2173,7 +2228,7 @@ button, input, select, textarea {
   }
 
   .testimonial-card {
-    padding: 20px;
+    padding: 18px;
   }
 
   .contacts-grid {
@@ -2183,7 +2238,7 @@ button, input, select, textarea {
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .hero-stats-grid {
@@ -2197,5 +2252,9 @@ button, input, select, textarea {
   .mode-tab-btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .top-info-left {
+    font-size: 0.64rem;
   }
 }
