@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Palette, Check, X, ChevronRight, ChevronLeft } from 'lucide-react';
+import { Palette, Check, X, Sparkles } from 'lucide-react';
 
 const themes = [
   { 
     id: 'executive-dark', 
     name: 'Executive Dark', 
-    desc: 'Глибокий темний темно-синій фон, неонові елементи та сапфіровий лого-акцент',
+    desc: 'Глибокий темно-синій фон, неонові елементи та сапфіровий лого-акцент',
     primaryColor: '#1d4ed8', 
     bgColor: '#0b1120' 
   },
@@ -37,6 +37,27 @@ const themes = [
     primaryColor: '#3b82f6', 
     bgColor: '#050d1a' 
   },
+  { 
+    id: 'crimson-red', 
+    name: 'Crimson Red Express 🔴', 
+    desc: 'Динамічний темно-червоний корпоративний стиль для швидкісних доставок',
+    primaryColor: '#dc2626', 
+    bgColor: '#12090b' 
+  },
+  { 
+    id: 'emerald-green', 
+    name: 'Emerald Eco-Green 💚', 
+    desc: 'Екологічний смарагдово-зелений стиль сталого логістичного транспорту',
+    primaryColor: '#059669', 
+    bgColor: '#07130e' 
+  },
+  { 
+    id: 'obsidian-gold', 
+    name: 'Obsidian Luxury Gold 👑', 
+    desc: 'Преміальний королівський обсидіановий чорний з золотими та бурштиновими акцентами',
+    primaryColor: '#d97706', 
+    bgColor: '#0a0a0c' 
+  },
 ];
 
 export default function LeftThemeDrawer({ currentTheme, setTheme }) {
@@ -53,7 +74,7 @@ export default function LeftThemeDrawer({ currentTheme, setTheme }) {
       >
         <Palette size={18} />
         <span className="trigger-text">Теми сайту</span>
-        <span className="trigger-badge">5</span>
+        <span className="trigger-badge">{themes.length}</span>
       </button>
 
       {/* Backdrop overlay when open on mobile */}
@@ -67,8 +88,8 @@ export default function LeftThemeDrawer({ currentTheme, setTheme }) {
           <div className="drawer-header-title">
             <Palette size={20} style={{ color: 'var(--accent-light)' }} />
             <div>
-              <h3>Теми оформлення</h3>
-              <p>Оберіть дизайн для тестування</p>
+              <h3>Теми оформлення ({themes.length})</h3>
+              <p>Оберіть візуальну тему для перегляду</p>
             </div>
           </div>
           <button className="drawer-close-btn" onClick={() => setIsOpen(false)}>
@@ -107,7 +128,7 @@ export default function LeftThemeDrawer({ currentTheme, setTheme }) {
         </div>
 
         <div className="drawer-footer">
-          <span>Тема зберігається автоматично</span>
+          <span>Тема зберігається у пам'яті браузера</span>
         </div>
       </aside>
     </>

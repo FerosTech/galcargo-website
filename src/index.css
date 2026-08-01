@@ -157,6 +157,96 @@
   --hero-gradient: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.3) 0%, rgba(5, 13, 26, 1) 75%);
 }
 
+[data-theme="crimson-red"] {
+  /* Theme 6: Crimson Red Express (High-Energy Dynamic Red) */
+  --bg-primary: #12090b;
+  --bg-secondary: #1a0e11;
+  --bg-card: rgba(26, 14, 17, 0.9);
+  --bg-card-hover: rgba(38, 20, 24, 0.95);
+  --border-color: rgba(220, 38, 38, 0.3);
+  --border-glow: rgba(220, 38, 38, 0.6);
+  
+  --text-main: #fef2f2;
+  --text-muted: #fca5a5;
+  --text-inverse: #000000;
+  
+  --accent-primary: #dc2626;       /* Crimson Red */
+  --accent-hover: #b91c1c;
+  --accent-light: #ef4444;
+  --accent-glow: rgba(220, 38, 38, 0.45);
+  --accent-secondary: #f97316;
+  
+  --badge-bg: rgba(220, 38, 38, 0.16);
+  --badge-text: #fca5a5;
+  --badge-border: rgba(239, 68, 68, 0.4);
+  
+  --glass-bg: rgba(18, 9, 11, 0.88);
+  --glass-border: rgba(220, 38, 38, 0.25);
+  --shadow-main: 0 10px 30px -5px rgba(220, 38, 38, 0.25);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(220, 38, 38, 0.25) 0%, rgba(18, 9, 11, 1) 70%);
+}
+
+[data-theme="emerald-green"] {
+  /* Theme 7: Emerald Eco-Green (Eco-Friendly Green Logistics) */
+  --bg-primary: #07130e;
+  --bg-secondary: #0c1c15;
+  --bg-card: rgba(12, 28, 21, 0.9);
+  --bg-card-hover: rgba(18, 40, 30, 0.95);
+  --border-color: rgba(16, 185, 129, 0.3);
+  --border-glow: rgba(16, 185, 129, 0.6);
+  
+  --text-main: #ecfdf5;
+  --text-muted: #6ee7b7;
+  --text-inverse: #022c22;
+  
+  --accent-primary: #059669;       /* Emerald Green */
+  --accent-hover: #047857;
+  --accent-light: #10b981;
+  --accent-glow: rgba(16, 185, 129, 0.45);
+  --accent-secondary: #34d399;
+  
+  --badge-bg: rgba(16, 185, 129, 0.16);
+  --badge-text: #6ee7b7;
+  --badge-border: rgba(52, 211, 153, 0.4);
+  
+  --glass-bg: rgba(7, 19, 14, 0.88);
+  --glass-border: rgba(16, 185, 129, 0.25);
+  --shadow-main: 0 10px 30px -5px rgba(16, 185, 129, 0.25);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.25) 0%, rgba(7, 19, 14, 1) 70%);
+}
+
+[data-theme="obsidian-gold"] {
+  /* Theme 8: Obsidian Luxury Gold (Executive Premium Gold & Amber - No Blue!) */
+  --bg-primary: #0a0a0c;
+  --bg-secondary: #131317;
+  --bg-card: rgba(19, 19, 23, 0.92);
+  --bg-card-hover: rgba(28, 28, 34, 0.95);
+  --border-color: rgba(217, 119, 6, 0.35);
+  --border-glow: rgba(245, 158, 11, 0.6);
+  
+  --text-main: #fffbeb;
+  --text-muted: #fcd34d;
+  --text-inverse: #000000;
+  
+  --accent-primary: #d97706;       /* Executive Gold */
+  --accent-hover: #b45309;
+  --accent-light: #f59e0b;
+  --accent-glow: rgba(245, 158, 11, 0.45);
+  --accent-secondary: #fbbf24;
+  
+  --badge-bg: rgba(217, 119, 6, 0.18);
+  --badge-text: #fbbf24;
+  --badge-border: rgba(251, 191, 36, 0.4);
+  
+  --glass-bg: rgba(10, 10, 12, 0.92);
+  --glass-border: rgba(245, 158, 11, 0.25);
+  --shadow-main: 0 12px 35px -5px rgba(245, 158, 11, 0.2);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.22) 0%, rgba(10, 10, 12, 1) 70%);
+}
+
 /* --------------------------------------------------------------------------
    2. Reset & Core Base Styles
    -------------------------------------------------------------------------- */
