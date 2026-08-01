@@ -247,6 +247,126 @@
   --hero-gradient: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.22) 0%, rgba(10, 10, 12, 1) 70%);
 }
 
+[data-theme="light-crimson-red"] {
+  /* Theme 9: Light Crimson Red (Clean White & High-Energy Red) */
+  --bg-primary: #fef2f2;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fee2e2;
+  --border-color: #fca5a5;
+  --border-glow: rgba(220, 38, 38, 0.4);
+  
+  --text-main: #18181b;
+  --text-muted: #4b5563;
+  --text-inverse: #ffffff;
+  
+  --accent-primary: #dc2626;
+  --accent-hover: #b91c1c;
+  --accent-light: #ef4444;
+  --accent-glow: rgba(220, 38, 38, 0.2);
+  --accent-secondary: #f97316;
+  
+  --badge-bg: #fef2f2;
+  --badge-text: #b91c1c;
+  --badge-border: #fca5a5;
+  
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(252, 165, 165, 0.8);
+  --shadow-main: 0 10px 25px -5px rgba(220, 38, 38, 0.1);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(254, 226, 226, 0.8) 0%, rgba(254, 242, 242, 1) 75%);
+}
+
+[data-theme="light-emerald-green"] {
+  /* Theme 10: Light Emerald Green (Clean White & Eco Emerald) */
+  --bg-primary: #f0fdf4;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #dcfce7;
+  --border-color: #86efac;
+  --border-glow: rgba(5, 150, 105, 0.4);
+  
+  --text-main: #064e3b;
+  --text-muted: #374151;
+  --text-inverse: #ffffff;
+  
+  --accent-primary: #059669;
+  --accent-hover: #047857;
+  --accent-light: #10b981;
+  --accent-glow: rgba(16, 185, 129, 0.2);
+  --accent-secondary: #0284c7;
+  
+  --badge-bg: #ecfdf5;
+  --badge-text: #047857;
+  --badge-border: #a7f3d0;
+  
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(134, 239, 172, 0.8);
+  --shadow-main: 0 10px 25px -5px rgba(5, 150, 105, 0.1);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(220, 252, 231, 0.8) 0%, rgba(240, 253, 244, 1) 75%);
+}
+
+[data-theme="light-luxury-gold"] {
+  /* Theme 11: Light Luxury Gold (Ivory White & Executive Gold/Charcoal) */
+  --bg-primary: #fafaf9;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f5f4;
+  --border-color: #e7e5e4;
+  --border-glow: rgba(217, 119, 6, 0.4);
+  
+  --text-main: #1c1917;
+  --text-muted: #57534e;
+  --text-inverse: #ffffff;
+  
+  --accent-primary: #d97706;
+  --accent-hover: #b45309;
+  --accent-light: #f59e0b;
+  --accent-glow: rgba(217, 119, 6, 0.2);
+  --accent-secondary: #78350f;
+  
+  --badge-bg: #fffbeb;
+  --badge-text: #b45309;
+  --badge-border: #fde68a;
+  
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(231, 229, 228, 0.8);
+  --shadow-main: 0 10px 25px -5px rgba(217, 119, 6, 0.1);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(254, 243, 199, 0.6) 0%, rgba(250, 250, 249, 1) 75%);
+}
+
+[data-theme="light-royal-purple"] {
+  /* Theme 12: Light Royal Purple (Clean White & Lavender Royal Purple) */
+  --bg-primary: #faf5ff;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f3e8ff;
+  --border-color: #d8b4fe;
+  --border-glow: rgba(126, 34, 206, 0.4);
+  
+  --text-main: #3b0764;
+  --text-muted: #4b5563;
+  --text-inverse: #ffffff;
+  
+  --accent-primary: #7e22ce;
+  --accent-hover: #6b21a8;
+  --accent-light: #9333ea;
+  --accent-glow: rgba(126, 34, 206, 0.2);
+  --accent-secondary: #c084fc;
+  
+  --badge-bg: #faf5ff;
+  --badge-text: #6b21a8;
+  --badge-border: #e9d5ff;
+  
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(216, 180, 254, 0.8);
+  --shadow-main: 0 10px 25px -5px rgba(126, 34, 206, 0.1);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(243, 232, 255, 0.8) 0%, rgba(250, 245, 255, 1) 75%);
+}
+
 /* --------------------------------------------------------------------------
    2. Reset & Core Base Styles
    -------------------------------------------------------------------------- */

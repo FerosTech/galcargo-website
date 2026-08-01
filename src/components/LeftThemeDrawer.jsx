@@ -2,61 +2,92 @@ import React, { useState } from 'react';
 import { Palette, Check, X, Sparkles } from 'lucide-react';
 
 const themes = [
+  // --- Dark / Night Themes ---
   { 
     id: 'executive-dark', 
-    name: 'Executive Dark', 
+    name: 'Executive Dark 🌙', 
     desc: 'Глибокий темно-синій фон, неонові елементи та сапфіровий лого-акцент',
     primaryColor: '#1d4ed8', 
     bgColor: '#0b1120' 
   },
   { 
-    id: 'classic-light', 
-    name: 'Classic Light', 
-    desc: 'Класичний білосніжний B2B стиль з глибоким синім корпоративним шрифтом',
-    primaryColor: '#1e3a8a', 
-    bgColor: '#ffffff' 
-  },
-  { 
     id: 'hitech-cyan', 
-    name: 'High-Tech Cyan', 
+    name: 'High-Tech Cyan ⚡', 
     desc: 'Футуристичний дизайн з лазурно-ціановими неоновими індикаторами',
     primaryColor: '#06b6d4', 
     bgColor: '#060b14' 
   },
   { 
     id: 'warm-steel', 
-    name: 'Warm Steel', 
-    desc: 'Преміальний сталевий slate фон з бронзово-золотистими та синіми акцентами',
+    name: 'Warm Steel 🪵', 
+    desc: 'Преміальний сталевий slate фон з бронзово-золотистими акцентами',
     primaryColor: '#d97706', 
     bgColor: '#141619' 
   },
   { 
     id: 'glassmorphism-blue', 
-    name: 'Glass Modern', 
-    desc: 'Скляний модерн з напівпрозорими frosted-glass картками та градієнтами',
+    name: 'Glass Modern 🧊', 
+    desc: 'Скляний модерн з напівпрозорими frosted-glass картками',
     primaryColor: '#3b82f6', 
     bgColor: '#050d1a' 
   },
   { 
     id: 'crimson-red', 
-    name: 'Crimson Red Express 🔴', 
-    desc: 'Динамічний темно-червоний корпоративний стиль для швидкісних доставок',
+    name: 'Crimson Red Dark 🔴', 
+    desc: 'Динамічний темно-червоний стиль для експрес-доставок',
     primaryColor: '#dc2626', 
     bgColor: '#12090b' 
   },
   { 
     id: 'emerald-green', 
     name: 'Emerald Eco-Green 💚', 
-    desc: 'Екологічний смарагдово-зелений стиль сталого логістичного транспорту',
+    desc: 'Екологічний смарагдово-зелений стиль сталого транспорту',
     primaryColor: '#059669', 
     bgColor: '#07130e' 
   },
   { 
     id: 'obsidian-gold', 
     name: 'Obsidian Luxury Gold 👑', 
-    desc: 'Преміальний королівський обсидіановий чорний з золотими та бурштиновими акцентами',
+    desc: 'Преміальний королівський чорний з чисто золотими акцентами (без синього)',
     primaryColor: '#d97706', 
     bgColor: '#0a0a0c' 
+  },
+
+  // --- NEW: Light / White Themes (No Blue!) ---
+  { 
+    id: 'classic-light', 
+    name: 'Classic Light ⚪', 
+    desc: 'Класичний білосніжний B2B стиль з глибоким синім корпоративним шрифтом',
+    primaryColor: '#1e3a8a', 
+    bgColor: '#ffffff' 
+  },
+  { 
+    id: 'light-crimson-red', 
+    name: 'Light Crimson Red ⚪🔴', 
+    desc: 'НОВИНКА: Чистий білосніжний фон з яскравими червоними акцентами та кнопками',
+    primaryColor: '#dc2626', 
+    bgColor: '#ffffff' 
+  },
+  { 
+    id: 'light-emerald-green', 
+    name: 'Light Emerald Eco ⚪💚', 
+    desc: 'НОВИНКА: Світло-м\'ятний білий фон зі смарагдово-зеленими кнопочками',
+    primaryColor: '#059669', 
+    bgColor: '#ffffff' 
+  },
+  { 
+    id: 'light-luxury-gold', 
+    name: 'Light Luxury Gold ⚪👑', 
+    desc: 'НОВИНКА: Преміальний слонова кість / білий з бурштиновим золотом та графітом',
+    primaryColor: '#d97706', 
+    bgColor: '#fafaf9' 
+  },
+  { 
+    id: 'light-royal-purple', 
+    name: 'Light Royal Purple ⚪💜', 
+    desc: 'НОВИНКА: Білий фон з королівськими пурпурно-фіолетовими кнопками',
+    primaryColor: '#7e22ce', 
+    bgColor: '#ffffff' 
   },
 ];
 
@@ -73,7 +104,7 @@ export default function LeftThemeDrawer({ currentTheme, setTheme }) {
         type="button"
       >
         <Palette size={18} />
-        <span className="trigger-text">Теми сайту</span>
+        <span className="trigger-text">Теми (12)</span>
         <span className="trigger-badge">{themes.length}</span>
       </button>
 
@@ -88,8 +119,8 @@ export default function LeftThemeDrawer({ currentTheme, setTheme }) {
           <div className="drawer-header-title">
             <Palette size={20} style={{ color: 'var(--accent-light)' }} />
             <div>
-              <h3>Теми оформлення ({themes.length})</h3>
-              <p>Оберіть візуальну тему для перегляду</p>
+              <h3>Галерея тем (12 вариантів)</h3>
+              <p>Клацніть будь-яку тему для миттєвої зміни</p>
             </div>
           </div>
           <button className="drawer-close-btn" onClick={() => setIsOpen(false)}>
@@ -116,7 +147,7 @@ export default function LeftThemeDrawer({ currentTheme, setTheme }) {
                     {isActive && (
                       <span className="active-badge">
                         <Check size={12} />
-                        Активна
+                        Обрана
                       </span>
                     )}
                   </div>
@@ -128,7 +159,7 @@ export default function LeftThemeDrawer({ currentTheme, setTheme }) {
         </div>
 
         <div className="drawer-footer">
-          <span>Тема зберігається у пам'яті браузера</span>
+          <span>Оберіть тему для затвердження</span>
         </div>
       </aside>
     </>
