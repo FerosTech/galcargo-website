@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
+import LeftThemeDrawer from './components/LeftThemeDrawer';
 import Hero from './components/Hero';
 import Calculator from './components/Calculator';
 import Services from './components/Services';
@@ -46,12 +47,14 @@ export default function App() {
 
   return (
     <div className="app-main-wrapper">
-      {/* Unified Header with Integrated Navbar & Theme Switcher */}
-      <Navbar 
+      {/* Left Sidebar Theme Switcher Drawer */}
+      <LeftThemeDrawer 
         currentTheme={theme} 
         setTheme={setTheme} 
-        onOpenQuote={handleOpenQuote} 
       />
+
+      {/* Main Header & Navbar */}
+      <Navbar onOpenQuote={handleOpenQuote} />
 
       {/* Hero Presentation */}
       <Hero 

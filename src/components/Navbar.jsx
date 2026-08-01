@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
-import { Phone, Calculator, Menu, X, Palette, ShieldCheck, Clock } from 'lucide-react';
+import { Phone, Calculator, Menu, X, ShieldCheck, Clock, Palette } from 'lucide-react';
 
-const themes = [
-  { id: 'executive-dark', name: 'Executive Dark', color: '#1d4ed8' },
-  { id: 'classic-light', name: 'Classic Light', color: '#1e3a8a' },
-  { id: 'hitech-cyan', name: 'High-Tech Cyan', color: '#06b6d4' },
-  { id: 'warm-steel', name: 'Warm Steel', color: '#d97706' },
-  { id: 'glassmorphism-blue', name: 'Glass Modern', color: '#3b82f6' },
-];
-
-export default function Navbar({ currentTheme, setTheme, onOpenQuote }) {
+export default function Navbar({ onOpenQuote }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <header className="site-header">
-      {/* Upper Utility Strip: Status & Theme Switcher */}
+      {/* Top Utility Line */}
       <div className="top-header-strip">
         <div className="top-header-container">
           <div className="top-info-left">
@@ -22,34 +14,14 @@ export default function Navbar({ currentTheme, setTheme, onOpenQuote }) {
             <span>Диспетчерський центр 24/7 | GPS Моніторинг активний</span>
           </div>
 
-          {/* Integrated Theme Switcher */}
-          <div className="theme-switcher-inline">
-            <div className="theme-switcher-label">
-              <Palette size={14} />
-              <span>Тема сайту:</span>
-            </div>
-            <div className="theme-pills-row">
-              {themes.map((t) => {
-                const isActive = currentTheme === t.id;
-                return (
-                  <button
-                    key={t.id}
-                    className={`theme-pill-btn ${isActive ? 'active' : ''}`}
-                    onClick={() => setTheme(t.id)}
-                    title={`Переключити на тему ${t.name}`}
-                    type="button"
-                  >
-                    <span className="theme-pill-dot" style={{ backgroundColor: t.color }}></span>
-                    <span className="theme-pill-name">{t.name}</span>
-                  </button>
-                );
-              })}
-            </div>
+          <div className="top-info-right">
+            <Clock size={12} />
+            <span>Пн-Нд: 24 години на добу</span>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Row */}
+      {/* Main Navbar Row */}
       <div className="main-navbar-row">
         <div className="navbar-container">
           {/* Brand Logo & Name */}
