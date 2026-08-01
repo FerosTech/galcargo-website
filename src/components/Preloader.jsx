@@ -5,6 +5,7 @@ export default function Preloader({ onComplete }) {
   const [progress, setProgress] = useState(0);
   const [statusText, setStatusText] = useState('Завантаження логістичних модулів...');
   const [fadingOut, setFadingOut] = useState(false);
+  const logoUrl = `${import.meta.env.BASE_URL}logo.png?v=clean2`;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,13 +44,10 @@ export default function Preloader({ onComplete }) {
         {/* Brand Logo with Glow */}
         <div className="preloader-logo-wrap">
           <img 
-            src="./logo.png" 
+            src={logoUrl} 
             alt="GalCargo Logo Preloader" 
             className="preloader-logo-img"
-            onError={(e) => {
-              e.target.onerror = null;
-              e.target.src = './image_532900.jpg';
-            }}
+            style={{ background: 'transparent' }}
           />
         </div>
 

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Phone, Calculator, Menu, X, Clock } from 'lucide-react';
 
 export default function Navbar({ onOpenQuote }) {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const logoUrl = `${import.meta.env.BASE_URL}logo.png?v=clean2`;
 
   return (
     <header className="site-header">
@@ -27,13 +28,10 @@ export default function Navbar({ onOpenQuote }) {
           {/* Brand Logo & Name */}
           <a href="#" className="brand-logo-container">
             <img 
-              src="./logo.png" 
+              src={logoUrl} 
               alt="GalCargo Logo" 
               className="brand-logo-img"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = './image_532900.jpg';
-              }} 
+              style={{ background: 'transparent' }}
             />
             <div className="brand-text-block">
               <span className="brand-name">Гал Карго</span>

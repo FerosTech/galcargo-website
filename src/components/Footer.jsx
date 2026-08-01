@@ -2,6 +2,8 @@ import React from 'react';
 import { Phone, Mail, MapPin, ShieldCheck, ArrowUp } from 'lucide-react';
 
 export default function Footer({ onOpenQuote }) {
+  const logoUrl = `${import.meta.env.BASE_URL}logo.png?v=clean2`;
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -13,13 +15,10 @@ export default function Footer({ onOpenQuote }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <a href="#" className="brand-logo-container">
             <img 
-              src="./logo.png" 
+              src={logoUrl} 
               alt="GalCargo Logo" 
-              className="brand-logo-img"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = './image_532900.jpg';
-              }}
+              className="brand-logo-img" 
+              style={{ background: 'transparent' }}
             />
             <div className="brand-text-block">
               <span className="brand-name">Гал Карго</span>
