@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { translations } from './i18n/translations';
 import Preloader from './components/Preloader';
 import Navbar from './components/Navbar';
 import LeftThemeDrawer from './components/LeftThemeDrawer';
@@ -17,6 +18,11 @@ export default function App() {
   // Preloader state
   const [loading, setLoading] = useState(true);
 
+  // i18n Language state: 'ua' | 'en' | 'pl' | 'ru'
+  const [lang, setLang] = useState(() => {
+    return localStorage.getItem('galcargo_lang') || 'ua';
+  });
+
   // Theme state: default 'executive-dark'
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('galcargo_theme') || 'executive-dark';
@@ -33,6 +39,22 @@ export default function App() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('galcargo_theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem('galcargo_lang', lang);
+  }, [lang]);
+
+  // Translation lookup helper
+  const t = (key) => {
+    if (translations[lang] && translations[lang][key]) {
+      return translations[lang][key];
+    }
+    // Fallback to UA if missing in target lang
+    if (translations['ua'] && translations['ua'][key]) {
+      return translations['ua'][key];
+    }
+    return key;
+  };
 
   const handleOpenQuote = () => {
     setQuoteCalcData(null);
@@ -60,35 +82,56 @@ export default function App() {
         setTheme={setTheme} 
       />
 
-      {/* Main Header & Navbar */}
-      <Navbar onOpenQuote={handleOpenQuote} />
+      {/* Main Header & Navbar with Language Switcher */}
+      <Navbar 
+        currentLang={lang} 
+        setLang={setLang} 
+        t={t} 
+        onOpenQuote={handleOpenQuote} 
+      />
 
       {/* Hero Presentation */}
       <Hero 
+        t={t} 
         onOpenQuote={handleOpenQuote} 
         onTrackCargo={handleTrackCargo} 
       />
 
       {/* Multimodal Freight Rate Calculator */}
-      <Calculator onOpenQuoteWithData={handleOpenQuoteWithData} />
+      <Calculator 
+        t={t} 
+        onOpenQuoteWithData={handleOpenQuoteWithData} 
+      />
 
       {/* Primary Transport Services Breakdown */}
-      <Services onOpenQuote={handleOpenQuote} />
+      <Services 
+        t={t} 
+        onOpenQuote={handleOpenQuote} 
+      />
 
       {/* Active Route Network & Geography */}
-      <GeographyMap onOpenQuote={handleOpenQuote} />
+      <GeographyMap 
+        t={t} 
+        onOpenQuote={handleOpenQuote} 
+      />
 
       {/* B2B About & Reliability Metrics */}
-      <AboutUs />
+      <AboutUs t={t} />
 
       {/* B2B Client Reviews & Testimonials */}
-      <Testimonials />
+      <Testimonials t={t} />
 
       {/* Contact Info & Direct Inquiry Form */}
-      <ContactSection onOpenQuote={handleOpenQuote} />
+      <ContactSection 
+        t={t} 
+        onOpenQuote={handleOpenQuote} 
+      />
 
       {/* Footer */}
-      <Footer onOpenQuote={handleOpenQuote} />
+      <Footer 
+        t={t} 
+        onOpenQuote={handleOpenQuote} 
+      />
 
       {/* Modals */}
       {quoteModalOpen && (

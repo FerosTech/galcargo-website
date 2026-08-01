@@ -1,109 +1,81 @@
 import React from 'react';
-import { MapPin, Navigation, Clock, Globe, ArrowRight, ShieldAlert } from 'lucide-react';
+import { MapPin, Globe, Compass, ArrowUpRight } from 'lucide-react';
 
-export default function GeographyMap({ onOpenQuote }) {
+export default function GeographyMap({ t, onOpenQuote }) {
   const hubs = [
-    { city: 'Львів', country: 'Україна', status: 'Головний термінал & З/Д хаб', code: 'LVO' },
-    { city: 'Одеса', country: 'Україна', status: 'Морський порт & Контейнерний термінал', code: 'ODS' },
-    { city: 'Київ', country: 'Україна', status: 'Логістичний центр & Митниця', code: 'IEV' },
-    { city: 'Варшава', country: 'Польща', status: 'Європейський дистрибуційний хаб', code: 'WAW' },
-    { city: 'Гамбург', country: 'Німеччина', status: 'Морський & Авто термінал', code: 'HAM' },
-    { city: 'Нінбо / Шанхай', country: 'Китай', status: 'Азійський консолідаційний склад', code: 'NGB' }
+    { city: 'Львів (UA)', desc: 'Західноукраїнський мультимодальний термінал & Консолідаційний склад' },
+    { city: 'Київ (UA)', desc: 'Головний диспетчерський центр & Митний комплекс' },
+    { city: 'Одеса (UA)', desc: 'Морський контейнерний термінал (Південний / Чорноморськ)' },
+    { city: 'Холм / Перемишль (PL)', desc: 'Залізнично-автомобільний перевантажувальний хаб ЄС' },
+    { city: 'Гданськ / Гамбург (EU)', desc: 'Глибоководні морські класифіковані порти' },
+    { city: 'Нінбо / Шанхай (CN)', desc: 'Азійський консолідаційний хаб залізничних та морських вантажів' }
   ];
 
-  const popularRoutes = [
-    { from: 'Львів / Київ', to: 'Варшава / Берлін', mode: 'Авто (Фури)', time: '2 - 3 дні', freq: 'Щодня' },
-    { from: 'Нінбо (Китай)', to: 'Львів (З/Д Експрес)', mode: 'Залізниця', time: '14 - 18 днів', freq: '3 рази на тиждень' },
-    { from: 'Шанхай (Китай)', to: 'Одеса / Гданськ', mode: 'Морський фрахт', time: '28 - 35 днів', freq: 'Щотижня' },
-    { from: 'Україна', to: 'Чикаго / Нью-Йорк (США)', mode: 'Море + Авіа / Авто', time: '16 - 22 дні', freq: '2 рази на тиждень' }
+  const routes = [
+    { from: 'Львів / Київ', to: 'Варшава / Берлін', mode: 'Авто (24-48 год)', price: 'від €650' },
+    { from: 'Шанхай / Нінбо', to: 'Гданськ / Одеса', mode: 'Море (25-30 днів)', price: 'від $1,400' },
+    { from: 'Сіань / Ченду', to: 'Холм / Ланьцут', mode: 'З/Д (14-16 днів)', price: 'від $2,100' },
+    { from: 'Одеса / Южний', to: 'Роттердам / Антверпен', mode: 'Мультимодал (4-6 днів)', price: 'від €950' }
   ];
 
   return (
     <section className="geography-section" id="geography">
       <div className="section-header">
-        <span className="section-subtitle">Географія & Маршрути</span>
-        <h2 className="section-title">Міжнародна логістична мережа</h2>
+        <span className="section-subtitle">{t('geo_subtitle')}</span>
+        <h2 className="section-title">{t('geo_title')}</h2>
         <p className="section-desc">
-          Ми з'єднуємо ключові промислові та торговельні центри України, Європейського Союзу, Азії та Північної Америки.
+          {t('geo_desc')}
         </p>
       </div>
 
-      <div className="routes-grid">
-        {/* Interactive Map Visual */}
-        <div className="map-visual-card">
-          <div className="map-bg-graphics"></div>
-          
-          <div style={{ position: 'relative', zIndex: 2 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-light)' }}>
-              <Globe size={20} />
-              <h3 style={{ fontSize: '1.2rem', color: 'var(--text-main)' }}>Ключові логістичні хаби GalCargo</h3>
-            </div>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-              Власні та партнерські консолідаційні склади з цілодобовою охороною та митним контролем.
-            </p>
+      <div className="geography-grid">
+        {/* Hubs List */}
+        <div className="hubs-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+            <Compass size={24} style={{ color: 'var(--accent-light)' }} />
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--text-main)' }}>{t('hubs_title')}</h3>
           </div>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '24px' }}>
+            {t('hubs_sub')}
+          </p>
 
-          <div className="hub-nodes-container">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {hubs.map((h, i) => (
-              <div key={i} className="hub-node">
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span className="hub-name">{h.city}</span>
-                  <span style={{ fontSize: '0.65rem', padding: '2px 6px', background: 'var(--badge-bg)', color: 'var(--accent-light)', borderRadius: '4px', fontWeight: 700 }}>
-                    {h.code}
-                  </span>
+              <div key={i} className="hub-item">
+                <div className="hub-icon">
+                  <MapPin size={16} />
                 </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{h.country}</div>
-                <div className="hub-status">
-                  <MapPin size={10} />
-                  <span>{h.status}</span>
+                <div>
+                  <div className="hub-city">{h.city}</div>
+                  <div className="hub-desc">{h.desc}</div>
                 </div>
               </div>
             ))}
           </div>
-
-          <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '16px' }}>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              Завжди в наявності вільні причепи та контейнери
-            </span>
-            <button className="btn-secondary" style={{ padding: '6px 14px', fontSize: '0.8rem' }} onClick={onOpenQuote}>
-              Запитати маршрут
-            </button>
-          </div>
         </div>
 
-        {/* Popular Active Routes List */}
-        <div className="routes-cards-list">
-          <h3 style={{ fontSize: '1.2rem', color: 'var(--text-main)', marginBottom: '4px' }}>
-            Популярні експрес-напрямки:
-          </h3>
+        {/* Popular Express Routes */}
+        <div className="routes-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+            <Globe size={24} style={{ color: 'var(--accent-light)' }} />
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--text-main)' }}>{t('routes_title')}</h3>
+          </div>
 
-          {popularRoutes.map((r, idx) => (
-            <div key={idx} className="route-card-item">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <div className="route-endpoints">
-                  <span>{r.from}</span>
-                  <Navigation size={14} style={{ color: 'var(--accent-light)', transform: 'rotate(90deg)' }} />
-                  <span>{r.to}</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {routes.map((r, idx) => (
+              <div key={idx} className="route-row">
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span className="route-cities">{r.from} ➔ {r.to}</span>
+                  <span className="route-mode">{r.mode}</span>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                  <span>Вид: <strong style={{ color: 'var(--text-main)' }}>{r.mode}</strong></span>
-                  <span>•</span>
-                  <span>Регулярність: <strong style={{ color: 'var(--text-main)' }}>{r.freq}</strong></span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <span className="route-price">{r.price}</span>
+                  <button className="btn-secondary" style={{ padding: '6px 12px', fontSize: '0.8rem' }} onClick={onOpenQuote}>
+                    <ArrowUpRight size={14} />
+                  </button>
                 </div>
               </div>
-
-              <div className="route-eta">
-                <Clock size={12} style={{ display: 'inline', marginRight: '4px' }} />
-                {r.time}
-              </div>
-            </div>
-          ))}
-
-          <div style={{ padding: '16px', background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <MapPin size={24} style={{ color: 'var(--accent-light)', flexShrink: 0 }} />
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-              Не знайшли потрібне місто? Ми розробляємо <strong style={{ color: 'var(--text-main)' }}>індивідуальні мультимодальні схеми</strong> під спецзавдання вашого бізнесу.
-            </div>
+            ))}
           </div>
         </div>
       </div>

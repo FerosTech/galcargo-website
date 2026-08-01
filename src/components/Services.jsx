@@ -1,98 +1,67 @@
 import React from 'react';
-import { Truck, Anchor, Train, Box, ShieldCheck, CheckCircle, ArrowRight, Layers, Warehouse, Clock } from 'lucide-react';
+import { Truck, Anchor, Train, ArrowRight, Shield, RefreshCw } from 'lucide-react';
 
-export default function Services({ onOpenQuote }) {
+export default function Services({ t, onOpenQuote }) {
   const servicesList = [
     {
-      id: 'truck',
-      icon: <Truck size={32} />,
-      title: 'Автомобільні перевезення (Фури)',
-      description: 'Швидка та гнучка доставка вантажів будь-якої складності власним та партнерським автопарком євростандарту (Euro 6).',
-      features: [
-        'Тентовані причепи (86 – 120 м³) для будь-яких палетних вантажів',
-        'Рефрижераторні фури з контрольним термописцем (-20°C...+25°C)',
-        'Контейнероплато для перевезення 20’ та 40’ контейнерів з портів',
-        'Доставка комплектних вантажів (FTL) та збірних партій (LTL)'
-      ]
+      icon: <Truck size={36} style={{ color: 'var(--accent-light)' }} />,
+      title: 'Автомобільні перевезення (FTL / LTL)',
+      desc: 'Міжнародні тентові та рефрижераторні вантажні автомобільні рейси по Європі, СНД та Україні.',
+      specs: ['FTL (Повні фури) & LTL (Збірні)', 'GPS-трекінг 24/7 у кабінеті', 'CMR страхування на €500 000']
     },
     {
-      id: 'sea',
-      icon: <Anchor size={32} />,
-      title: 'Морський фрахт (Карго)',
-      description: 'Економічні контейнерні та суднорічні перевезення по всьому світу. Прямі агенти у портах Одеса, Гданськ, Роттердам, Нінбо.',
-      features: [
-        'Повна завантажка контейнерів FCL (20’GP, 40’HC, Flat Rack)',
-        'Збірні морські вантажі LTL — оплата лише за фактичний об’єм',
-        'Портове експедирування, сюрвей та перевалка вантажів',
-        'Прямі контракти з лініями Maersk, MSC, COSCO, CMA CGM'
-      ]
+      icon: <Anchor size={36} style={{ color: 'var(--accent-light)' }} />,
+      title: 'Морські контейнерні лінії (FCL / LCL)',
+      desc: 'Контейнерна логістика через порти Одеса, Гданськ, Гамбург, Роттердам. Прямі фрахтові контракти.',
+      specs: ['Контейнери 20’GP, 40’HC, Reefer', 'Консолідаційні склади в Китаї', 'Митне очищення в портах']
     },
     {
-      id: 'rail',
-      icon: <Train size={32} />,
-      title: 'Залізничні перевезення (Поїзди)',
-      description: 'Надійне транспортування великих обсягів товарів з фіксованим розкладом. Прямі контейнерні поїзди з Китаю до України та ЄС.',
-      features: [
-        'Контейнерні залізничні експреси (Китай — ЄС за 14-18 днів)',
-        'Криті вагони, хопери для зернових та цистерни для наливів',
-        'Власна залізнична гілка та критичний перевантажувальний термінал',
-        'Незалежність від погодних умов та черг на автокордонах'
-      ]
-    },
-    {
-      id: 'customs',
-      icon: <Warehouse size={32} />,
-      title: 'Складська логістика & Митниця',
-      description: 'Комплексний супровід від митного розмитнення до відповідального зберігання на сучасних складах класу "А".',
-      features: [
-        'Швидке митне оформлення за 2-4 години (акредитовані брокери)',
-        'Митний склад та склад тимчасового зберігання (СТЗ)',
-        'Крос-докінг, консолідація, маркування та пакування вантажів',
-        'Страхування від провідних міжнародних страховиків (All Risks)'
-      ]
+      icon: <Train size={36} style={{ color: 'var(--accent-light)' }} />,
+      title: 'Залізничні експрес-поїзди',
+      desc: 'Пряме залізничне сполучення Китай — Україна / ЄС та перевезення масових промислових вантажів.',
+      specs: ['Фіксований графік відправки', 'Економія до 40% від авіа', 'Криті вагони, хопери, цистерни']
     }
   ];
 
   return (
     <section className="services-section" id="services">
-      <div className="services-container">
-        <div className="section-header">
-          <span className="section-subtitle">Основні напрямки</span>
-          <h2 className="section-title">Мультимодальний комплекс послуг GalCargo</h2>
-          <p className="section-desc">
-            Ми комбінуємо переваги автомобільного, морського та залізничного транспорту для створення оптимального маршруту під ваші задачі.
-          </p>
-        </div>
+      <div className="section-header">
+        <span className="section-subtitle">{t('serv_subtitle')}</span>
+        <h2 className="section-title">{t('serv_title')}</h2>
+        <p className="section-desc">
+          {t('serv_desc')}
+        </p>
+      </div>
 
-        <div className="services-grid">
-          {servicesList.map((s) => (
-            <div key={s.id} className="service-card">
-              <div className="service-icon-box">
-                {s.icon}
-              </div>
-              <h3 className="service-title">{s.title}</h3>
-              <p className="service-description">{s.description}</p>
-              
-              <ul className="service-features-list">
-                {s.features.map((feat, idx) => (
-                  <li key={idx} className="service-feature-item">
-                    <CheckCircle size={16} />
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <button 
-                className="btn-secondary" 
-                style={{ width: '100%', justifyContent: 'center', marginTop: '16px' }}
-                onClick={onOpenQuote}
-              >
-                <span>Детальніше про послугу</span>
-                <ArrowRight size={16} />
-              </button>
+      <div className="services-grid">
+        {servicesList.map((s, idx) => (
+          <div key={idx} className="service-card">
+            <div className="service-icon-box">
+              {s.icon}
             </div>
-          ))}
-        </div>
+
+            <h3 className="service-title">{s.title}</h3>
+            <p className="service-desc">{s.desc}</p>
+
+            <ul className="service-specs-list">
+              {s.specs.map((item, i) => (
+                <li key={i} className="service-spec-item">
+                  <Shield size={14} style={{ color: 'var(--accent-light)' }} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <button 
+              className="btn-secondary" 
+              style={{ width: '100%', justifyContent: 'center', marginTop: 'auto' }}
+              onClick={onOpenQuote}
+            >
+              <span>{t('btn_serv_more')}</span>
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        ))}
       </div>
     </section>
   );

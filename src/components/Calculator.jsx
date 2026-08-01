@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Calculator as CalcIcon, Truck, Anchor, Train, ArrowRight, CheckCircle2, ShieldCheck, Thermometer, FileText } from 'lucide-react';
+import { Calculator as CalcIcon, Truck, Anchor, Train, ArrowRight, ShieldCheck, Thermometer, FileText } from 'lucide-react';
 
-export default function Calculator({ onOpenQuoteWithData }) {
+export default function Calculator({ t, onOpenQuoteWithData }) {
   const [transport, setTransport] = useState('truck');
   const [origin, setOrigin] = useState('Львів, Україна');
   const [destination, setDestination] = useState('Варшава, Польща');
@@ -10,7 +10,6 @@ export default function Calculator({ onOpenQuoteWithData }) {
   const [needCustoms, setNeedCustoms] = useState(true);
   const [needInsurance, setNeedInsurance] = useState(true);
   const [needTemp, setNeedTemp] = useState(false);
-  const [needADR, setNeedADR] = useState(false);
 
   // Calculation Logic
   const getEstimatedPrice = () => {
@@ -19,34 +18,29 @@ export default function Calculator({ onOpenQuoteWithData }) {
     else if (transport === 'sea') baseRate = 1600;
     else if (transport === 'rail') baseRate = 1200;
 
-    // Weight multiplier
     let weightMult = weight * 45;
-    // Volume multiplier
     let volMult = volume * 8;
 
     let addons = 0;
     if (needCustoms) addons += 180;
     if (needInsurance) addons += 120;
     if (needTemp) addons += 250;
-    if (needADR) addons += 300;
 
-    // Route complexity
     let isOverseas = destination.includes('Китай') || destination.includes('США') || origin.includes('Китай');
     let routeMult = isOverseas ? 1.8 : 1.0;
 
-    let totalEUR = Math.round((baseRate + weightMult + volMult + addons) * routeMult);
-    return totalEUR;
+    return Math.round((baseRate + weightMult + volMult + addons) * routeMult);
   };
 
   const getEstimatedDays = () => {
     if (destination.includes('Китай') || origin.includes('Китай')) {
-      if (transport === 'sea') return '28 - 35 днів';
-      if (transport === 'rail') return '14 - 18 днів';
-      return '10 - 14 днів';
+      if (transport === 'sea') return '28 - 35 days';
+      if (transport === 'rail') return '14 - 18 days';
+      return '10 - 14 days';
     }
-    if (transport === 'truck') return '2 - 4 дні';
-    if (transport === 'rail') return '5 - 7 днів';
-    return '12 - 16 днів';
+    if (transport === 'truck') return '2 - 4 days';
+    if (transport === 'rail') return '5 - 7 days';
+    return '12 - 16 days';
   };
 
   const handleBookEstimate = () => {
@@ -59,8 +53,7 @@ export default function Calculator({ onOpenQuoteWithData }) {
       addons: {
         needCustoms,
         needInsurance,
-        needTemp,
-        needADR
+        needTemp
       },
       estimatedEUR: getEstimatedPrice(),
       estimatedDays: getEstimatedDays()
@@ -71,19 +64,18 @@ export default function Calculator({ onOpenQuoteWithData }) {
   return (
     <section className="calculator-section" id="calculator">
       <div className="section-header">
-        <span className="section-subtitle">Онлайн інструмент</span>
-        <h2 className="section-title">Калькулятор вартості перевезення</h2>
+        <span className="section-subtitle">{t('calc_subtitle')}</span>
+        <h2 className="section-title">{t('calc_title')}</h2>
         <p className="section-desc">
-          Отримайте миттєвий попередній прорахунок мультимодальної доставки вантажу за пару кліків.
+          {t('calc_desc')}
         </p>
       </div>
 
       <div className="calc-card">
         {/* Left Form Side */}
         <div className="calc-form-side">
-          {/* Transport selector */}
           <div className="calc-field-group">
-            <label className="calc-label">Оберіть вид транспорту:</label>
+            <label className="calc-label">{t('calc_select_transport')}</label>
             <div className="modes-tabs-header" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
               <button
                 type="button"
@@ -91,7 +83,7 @@ export default function Calculator({ onOpenQuoteWithData }) {
                 onClick={() => setTransport('truck')}
               >
                 <Truck size={18} />
-                <span>Автомобільний</span>
+                <span>{t('tab_truck')}</span>
               </button>
               <button
                 type="button"
@@ -99,7 +91,7 @@ export default function Calculator({ onOpenQuoteWithData }) {
                 onClick={() => setTransport('sea')}
               >
                 <Anchor size={18} />
-                <span>Морський фрахт</span>
+                <span>{t('tab_sea')}</span>
               </button>
               <button
                 type="button"
@@ -107,15 +99,14 @@ export default function Calculator({ onOpenQuoteWithData }) {
                 onClick={() => setTransport('rail')}
               >
                 <Train size={18} />
-                <span>Залізничний</span>
+                <span>{t('tab_rail')}</span>
               </button>
             </div>
           </div>
 
-          {/* Route selector */}
           <div className="calc-row-2">
             <div className="calc-field-group">
-              <label className="calc-label">Пункт відправлення:</label>
+              <label className="calc-label">{t('calc_origin')}</label>
               <select className="calc-select" value={origin} onChange={(e) => setOrigin(e.target.value)}>
                 <option value="Львів, Україна">Львів, Україна</option>
                 <option value="Київ, Україна">Київ, Україна</option>
@@ -126,7 +117,7 @@ export default function Calculator({ onOpenQuoteWithData }) {
               </select>
             </div>
             <div className="calc-field-group">
-              <label className="calc-label">Пункт призначення:</label>
+              <label className="calc-label">{t('calc_dest')}</label>
               <select className="calc-select" value={destination} onChange={(e) => setDestination(e.target.value)}>
                 <option value="Варшава, Польща">Варшава, Польща</option>
                 <option value="Гамбург, Німеччина">Гамбург, Німеччина</option>
@@ -138,12 +129,11 @@ export default function Calculator({ onOpenQuoteWithData }) {
             </div>
           </div>
 
-          {/* Weight Sliders */}
           <div className="calc-row-2">
             <div className="calc-field-group">
               <div className="calc-label">
-                <span>Вага вантажу (Тонни):</span>
-                <span className="calc-slider-val">{weight} тонн</span>
+                <span>{t('calc_weight')}</span>
+                <span className="calc-slider-val">{weight} T</span>
               </div>
               <input
                 type="range"
@@ -157,8 +147,8 @@ export default function Calculator({ onOpenQuoteWithData }) {
 
             <div className="calc-field-group">
               <div className="calc-label">
-                <span>Об’єм вантажу (м³):</span>
-                <span className="calc-slider-val">{volume} м³</span>
+                <span>{t('calc_vol')}</span>
+                <span className="calc-slider-val">{volume} m³</span>
               </div>
               <input
                 type="range"
@@ -171,9 +161,8 @@ export default function Calculator({ onOpenQuoteWithData }) {
             </div>
           </div>
 
-          {/* Add-ons checkboxes */}
           <div className="calc-field-group">
-            <label className="calc-label">Додаткові опції логістики:</label>
+            <label className="calc-label">{t('calc_addons')}</label>
             <div className="calc-checkboxes">
               <label className="checkbox-chip">
                 <input
@@ -182,7 +171,7 @@ export default function Calculator({ onOpenQuoteWithData }) {
                   onChange={(e) => setNeedCustoms(e.target.checked)}
                 />
                 <FileText size={16} />
-                <span>Митне оформлення</span>
+                <span>{t('addon_customs')}</span>
               </label>
 
               <label className="checkbox-chip">
@@ -192,7 +181,7 @@ export default function Calculator({ onOpenQuoteWithData }) {
                   onChange={(e) => setNeedInsurance(e.target.checked)}
                 />
                 <ShieldCheck size={16} />
-                <span>Страхування 100%</span>
+                <span>{t('addon_insurance')}</span>
               </label>
 
               <label className="checkbox-chip">
@@ -202,7 +191,7 @@ export default function Calculator({ onOpenQuoteWithData }) {
                   onChange={(e) => setNeedTemp(e.target.checked)}
                 />
                 <Thermometer size={16} />
-                <span>Температурний режим</span>
+                <span>{t('addon_temp')}</span>
               </label>
             </div>
           </div>
@@ -211,34 +200,34 @@ export default function Calculator({ onOpenQuoteWithData }) {
         {/* Right Calculation Result Box */}
         <div className="calc-result-side">
           <div>
-            <div className="calc-price-badge">Орієнтовна вартість:</div>
+            <div className="calc-price-badge">{t('calc_est_price')}</div>
             <div className="calc-price-amount">~ €{getEstimatedPrice()}</div>
-            <div className="calc-price-sub">включаючи податки та базове страхування</div>
+            <div className="calc-price-sub">{t('calc_tax_note')}</div>
           </div>
 
           <div className="calc-specs-list">
             <div className="calc-spec-item">
-              <span>Термін транзиту:</span>
+              <span>{t('calc_spec_time')}</span>
               <span style={{ color: 'var(--accent-light)' }}>{getEstimatedDays()}</span>
             </div>
             <div className="calc-spec-item">
-              <span>Тип транспорту:</span>
+              <span>{t('calc_spec_type')}</span>
               <span style={{ textTransform: 'capitalize' }}>
-                {transport === 'truck' ? 'Авто (Фури)' : transport === 'sea' ? 'Море (Контейнери)' : 'З/Д Поїзд'}
+                {transport === 'truck' ? t('tab_truck') : transport === 'sea' ? t('tab_sea') : t('tab_rail')}
               </span>
             </div>
             <div className="calc-spec-item">
-              <span>Вага / Об'єм:</span>
-              <span>{weight} т / {volume} м³</span>
+              <span>{t('calc_spec_weight')}</span>
+              <span>{weight} t / {volume} m³</span>
             </div>
             <div className="calc-spec-item">
-              <span>Маршрут:</span>
+              <span>{t('calc_spec_route')}</span>
               <span>{origin.split(',')[0]} → {destination.split(',')[0]}</span>
             </div>
           </div>
 
           <button className="btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={handleBookEstimate}>
-            <span>Зафіксувати ціну та замовити</span>
+            <span>{t('btn_fix_price')}</span>
             <ArrowRight size={18} />
           </button>
         </div>

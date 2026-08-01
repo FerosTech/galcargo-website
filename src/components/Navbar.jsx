@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Phone, Calculator, Menu, X, Clock } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
 
-export default function Navbar({ onOpenQuote }) {
+export default function Navbar({ currentLang, setLang, t, onOpenQuote }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const logoUrl = `${import.meta.env.BASE_URL}logo.png?v=clean2`;
 
@@ -12,12 +13,17 @@ export default function Navbar({ onOpenQuote }) {
         <div className="top-header-container">
           <div className="top-info-left">
             <span className="status-indicator-dot"></span>
-            <span>Диспетчерський центр 24/7 | GPS Моніторинг активний</span>
+            <span>{t('status_strip')}</span>
           </div>
 
-          <div className="top-info-right">
-            <Clock size={12} />
-            <span>Пн-Нд: 24 години на добу</span>
+          <div className="top-info-right" style={{ gap: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Clock size={12} />
+              <span>{t('working_hours')}</span>
+            </div>
+            
+            {/* Language Switcher Widget */}
+            <LanguageSwitcher currentLang={currentLang} setLang={setLang} />
           </div>
         </div>
       </div>
@@ -41,29 +47,29 @@ export default function Navbar({ onOpenQuote }) {
 
           {/* Navigation Links */}
           <nav className={`nav-menu ${mobileOpen ? 'mobile-active' : ''}`}>
-            <a href="#hero" className="nav-link" onClick={() => setMobileOpen(false)}>Головна</a>
-            <a href="#services" className="nav-link" onClick={() => setMobileOpen(false)}>Послуги</a>
-            <a href="#calculator" className="nav-link" onClick={() => setMobileOpen(false)}>Калькулятор</a>
-            <a href="#geography" className="nav-link" onClick={() => setMobileOpen(false)}>Географія</a>
-            <a href="#about" className="nav-link" onClick={() => setMobileOpen(false)}>Про нас</a>
-            <a href="#contacts" className="nav-link" onClick={() => setMobileOpen(false)}>Контакти</a>
+            <a href="#hero" className="nav-link" onClick={() => setMobileOpen(false)}>{t('nav_home')}</a>
+            <a href="#services" className="nav-link" onClick={() => setMobileOpen(false)}>{t('nav_services')}</a>
+            <a href="#calculator" className="nav-link" onClick={() => setMobileOpen(false)}>{t('nav_calc')}</a>
+            <a href="#geography" className="nav-link" onClick={() => setMobileOpen(false)}>{t('nav_geo')}</a>
+            <a href="#about" className="nav-link" onClick={() => setMobileOpen(false)}>{t('nav_about')}</a>
+            <a href="#contacts" className="nav-link" onClick={() => setMobileOpen(false)}>{t('nav_contacts')}</a>
           </nav>
 
           {/* Action Buttons & Phone */}
           <div className="nav-actions">
             <a href="tel:+380448002424" className="nav-phone">
               <Phone size={16} style={{ color: 'var(--accent-light)' }} />
-              <span>+38 (044) 800-24-24</span>
+              <span>{t('phone')}</span>
             </a>
             <button className="btn-primary" onClick={onOpenQuote}>
               <Calculator size={16} />
-              <span>Прорахувати вантаж</span>
+              <span>{t('btn_quote')}</span>
             </button>
             
             <button 
               className="mobile-menu-btn" 
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Переключити меню"
+              aria-label="Toggle menu"
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
