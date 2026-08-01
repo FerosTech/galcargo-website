@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Preloader from './components/Preloader';
 import Navbar from './components/Navbar';
 import LeftThemeDrawer from './components/LeftThemeDrawer';
 import Hero from './components/Hero';
@@ -13,6 +14,9 @@ import QuoteModal from './components/QuoteModal';
 import TrackingModal from './components/TrackingModal';
 
 export default function App() {
+  // Preloader state
+  const [loading, setLoading] = useState(true);
+
   // Theme state: default 'executive-dark'
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('galcargo_theme') || 'executive-dark';
@@ -47,6 +51,9 @@ export default function App() {
 
   return (
     <div className="app-main-wrapper">
+      {/* High-Tech Multimodal Logistics Preloader Screen */}
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
+
       {/* Left Sidebar Theme Switcher Drawer */}
       <LeftThemeDrawer 
         currentTheme={theme} 

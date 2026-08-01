@@ -1645,3 +1645,175 @@ button, input, select, textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* --------------------------------------------------------------------------
+   13. Multimodal Logistics Preloader Screen
+   -------------------------------------------------------------------------- */
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-primary);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+}
+
+.preloader-pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-light);
+  opacity: 0.25;
+  animation: radarPulse 2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes radarPulse {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+}
+
+.preloader-logo-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  background: var(--bg-secondary);
+  border: 2px solid var(--accent-primary);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  box-shadow: 0 10px 30px var(--accent-glow);
+  animation: logoFloat 3s infinite ease-in-out;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.preloader-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.preloader-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.preloader-brand-name {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+.preloader-brand-sub {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--accent-light);
+}
+
+.preloader-modes-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.preloader-mode-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.preloader-mode-icon.active {
+  color: var(--accent-light);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.mode-connector-line {
+  width: 30px;
+  height: 2px;
+  background: var(--border-color);
+  border-radius: 2px;
+}
+
+.preloader-progress-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preloader-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.preloader-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-light) 100%);
+  border-radius: 4px;
+  transition: width 0.15s linear;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.preloader-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.preloader-percent {
+  font-weight: 700;
+  color: var(--accent-light);
+}
