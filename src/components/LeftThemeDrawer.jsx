@@ -48,12 +48,12 @@ const themes = [
   { 
     id: 'obsidian-gold', 
     name: 'Obsidian Luxury Gold 👑', 
-    desc: 'Преміальний королівський чорний з чисто золотими акцентами (без синього)',
+    desc: 'Преміальний королівський чорний з чисто золотими акцентами',
     primaryColor: '#d97706', 
     bgColor: '#0a0a0c' 
   },
 
-  // --- NEW: Light / White Themes (No Blue!) ---
+  // --- Light / White Themes ---
   { 
     id: 'classic-light', 
     name: 'Classic Light ⚪', 
@@ -64,30 +64,102 @@ const themes = [
   { 
     id: 'light-crimson-red', 
     name: 'Light Crimson Red ⚪🔴', 
-    desc: 'НОВИНКА: Чистий білосніжний фон з яскравими червоними акцентами та кнопками',
+    desc: 'Чистий білосніжний фон з яскравими червоними акцентами та кнопками',
     primaryColor: '#dc2626', 
     bgColor: '#ffffff' 
   },
   { 
     id: 'light-emerald-green', 
     name: 'Light Emerald Eco ⚪💚', 
-    desc: 'НОВИНКА: Світло-м\'ятний білий фон зі смарагдово-зеленими кнопочками',
+    desc: 'Світло-м\'ятний білий фон зі смарагдово-зеленими кнопочками',
     primaryColor: '#059669', 
     bgColor: '#ffffff' 
   },
   { 
     id: 'light-luxury-gold', 
     name: 'Light Luxury Gold ⚪👑', 
-    desc: 'НОВИНКА: Преміальний слонова кість / білий з бурштиновим золотом та графітом',
+    desc: 'Преміальний слонова кість / білий з бурштиновим золотом та графітом',
     primaryColor: '#d97706', 
     bgColor: '#fafaf9' 
   },
   { 
     id: 'light-royal-purple', 
     name: 'Light Royal Purple ⚪💜', 
-    desc: 'НОВИНКА: Білий фон з королівськими пурпурно-фіолетовими кнопками',
+    desc: 'Білий фон з королівськими пурпурно-фіолетовими кнопками',
     primaryColor: '#7e22ce', 
     bgColor: '#ffffff' 
+  },
+
+  // --- 10 NEW Competitor Logistics Themes ---
+  { 
+    id: 'dhl-express-yellow', 
+    name: 'DHL Express Yellow 🟡🔴', 
+    desc: 'НОВИНКА: Стиль світового лідера логістики DHL — сонячний жовтий та експрес-червоний',
+    primaryColor: '#eab308', 
+    bgColor: '#0f172a' 
+  },
+  { 
+    id: 'kuehne-nagel-navy', 
+    name: 'Kuehne + Nagel Blue 🌊⚪', 
+    desc: 'НОВИНКА: Морська корпоративна палітра №1 у світі морського фрахту',
+    primaryColor: '#0f2b48', 
+    bgColor: '#ffffff' 
+  },
+  { 
+    id: 'db-schenker-teal', 
+    name: 'DB Schenker Rail Teal 🚆💚', 
+    desc: 'НОВИНКА: Залізнична німецька палітра з глибоким бірюзово-тіловим акцентом',
+    primaryColor: '#0d9488', 
+    bgColor: '#0b1320' 
+  },
+  { 
+    id: 'maersk-sky-blue', 
+    name: 'Maersk Ocean Cyan 🚢💙', 
+    desc: 'НОВИНКА: Легендарний світло-блакитний колір морських контейнерів Maersk',
+    primaryColor: '#38bdf8', 
+    bgColor: '#03182b' 
+  },
+  { 
+    id: 'fedex-purple-orange', 
+    name: 'FedEx Express Style ✈️💜', 
+    desc: 'НОВИНКА: Яскравий експрес-стиль з пурпурними та оранжевими кнопками',
+    primaryColor: '#6b21a8', 
+    bgColor: '#ffffff' 
+  },
+  { 
+    id: 'dsv-steel-minimal', 
+    name: 'DSV Steel Minimalist 🇩🇰⚙️', 
+    desc: 'НОВИНКА: Данський сталевий мінімалізм — сталь, графіт та срібло',
+    primaryColor: '#475569', 
+    bgColor: '#0f172a' 
+  },
+  { 
+    id: 'ch-robinson-amber', 
+    name: 'C.H. Robinson Amber 🇺🇸☀️', 
+    desc: 'НОВИНКА: Темно-синій океанський фон з яскравим сонячним бурштином',
+    primaryColor: '#d97706', 
+    bgColor: '#091322' 
+  },
+  { 
+    id: 'ceva-cobalt-white', 
+    name: 'CEVA Cobalt White 🇨🇭🔵', 
+    desc: 'НОВИНКА: Швейцарський білосніжний чистий стиль з електрик-кобальтом',
+    primaryColor: '#2563eb', 
+    bgColor: '#ffffff' 
+  },
+  { 
+    id: 'geodis-burgundy', 
+    name: 'GEODIS Burgundy Coral 🇫🇷🍷', 
+    desc: 'НОВИНКА: Французький логістичний стиль — бордово-бордовий з кораловим розписом',
+    primaryColor: '#be123c', 
+    bgColor: '#180911' 
+  },
+  { 
+    id: 'pacific-ocean-mint', 
+    name: 'Sinotrans Pacific Mint 🌏🌿', 
+    desc: 'НОВИНКА: Глибокий тихоокеанський синій із м\'ятно-смарагдовим сяйвом',
+    primaryColor: '#10b981', 
+    bgColor: '#041d2d' 
   },
 ];
 
@@ -100,11 +172,11 @@ export default function LeftThemeDrawer({ currentTheme, setTheme }) {
       <button 
         className={`left-theme-trigger-btn ${isOpen ? 'open' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
-        title="Відкрити панель вибору тем"
+        title="Відкрити галерею тем (22 тем)"
         type="button"
       >
         <Palette size={18} />
-        <span className="trigger-text">Теми (12)</span>
+        <span className="trigger-text">Теми (22)</span>
         <span className="trigger-badge">{themes.length}</span>
       </button>
 
@@ -119,8 +191,8 @@ export default function LeftThemeDrawer({ currentTheme, setTheme }) {
           <div className="drawer-header-title">
             <Palette size={20} style={{ color: 'var(--accent-light)' }} />
             <div>
-              <h3>Галерея тем (12 вариантів)</h3>
-              <p>Клацніть будь-яку тему для миттєвої зміни</p>
+              <h3>Галерея тем (22 варианти)</h3>
+              <p>Включаючи стилі лідерів логістики (DHL, Maersk, FedEx, K+N)</p>
             </div>
           </div>
           <button className="drawer-close-btn" onClick={() => setIsOpen(false)}>
@@ -159,7 +231,7 @@ export default function LeftThemeDrawer({ currentTheme, setTheme }) {
         </div>
 
         <div className="drawer-footer">
-          <span>Оберіть тему для затвердження</span>
+          <span>Оберіть тему для застосування</span>
         </div>
       </aside>
     </>

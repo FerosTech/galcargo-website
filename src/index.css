@@ -367,6 +367,308 @@
   --hero-gradient: radial-gradient(circle at 50% 0%, rgba(243, 232, 255, 0.8) 0%, rgba(250, 245, 255, 1) 75%);
 }
 
+/* --- COMPETITOR LOGISTICS THEMES (13 - 22) --- */
+
+[data-theme="dhl-express-yellow"] {
+  /* Theme 13: DHL Express Style (Yellow & Red Express Graphite) */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --bg-card-hover: #334155;
+  --border-color: #eab308;
+  --border-glow: rgba(234, 179, 8, 0.6);
+  
+  --text-main: #f8fafc;
+  --text-muted: #fef08a;
+  --text-inverse: #0f172a;
+  
+  --accent-primary: #eab308;
+  --accent-hover: #ca8a04;
+  --accent-light: #facc15;
+  --accent-glow: rgba(234, 179, 8, 0.35);
+  --accent-secondary: #dc2626;
+  
+  --badge-bg: rgba(234, 179, 8, 0.15);
+  --badge-text: #fef08a;
+  --badge-border: #fde047;
+  
+  --glass-bg: rgba(15, 23, 42, 0.92);
+  --glass-border: rgba(234, 179, 8, 0.4);
+  --shadow-main: 0 10px 25px -5px rgba(234, 179, 8, 0.2);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(234, 179, 8, 0.2) 0%, rgba(15, 23, 42, 1) 75%);
+}
+
+[data-theme="kuehne-nagel-navy"] {
+  /* Theme 14: Kuehne + Nagel Style (Maritime Blue & Steel White) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --border-color: #cbd5e1;
+  --border-glow: rgba(2, 132, 199, 0.4);
+  
+  --text-main: #0f2b48;
+  --text-muted: #334155;
+  --text-inverse: #ffffff;
+  
+  --accent-primary: #0f2b48;
+  --accent-hover: #0284c7;
+  --accent-light: #0284c7;
+  --accent-glow: rgba(2, 132, 199, 0.2);
+  --accent-secondary: #0369a1;
+  
+  --badge-bg: #e0f2fe;
+  --badge-text: #0369a1;
+  --badge-border: #7dd3fc;
+  
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(203, 213, 225, 0.8);
+  --shadow-main: 0 10px 25px -5px rgba(15, 43, 72, 0.1);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(224, 242, 254, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+[data-theme="db-schenker-teal"] {
+  /* Theme 15: DB Schenker Style (German Railway Teal & Dark Slate) */
+  --bg-primary: #0b1320;
+  --bg-secondary: #132033;
+  --bg-card: #132033;
+  --bg-card-hover: #1e2e47;
+  --border-color: #0d9488;
+  --border-glow: rgba(13, 148, 136, 0.6);
+  
+  --text-main: #f0fdfa;
+  --text-muted: #99f6e4;
+  --text-inverse: #0b1320;
+  
+  --accent-primary: #0d9488;
+  --accent-hover: #0f766e;
+  --accent-light: #14b8a6;
+  --accent-glow: rgba(13, 148, 136, 0.35);
+  --accent-secondary: #2dd4bf;
+  
+  --badge-bg: rgba(13, 148, 136, 0.18);
+  --badge-text: #99f6e4;
+  --badge-border: #5eead4;
+  
+  --glass-bg: rgba(11, 19, 32, 0.92);
+  --glass-border: rgba(13, 148, 136, 0.4);
+  --shadow-main: 0 10px 25px -5px rgba(13, 148, 136, 0.2);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(13, 148, 136, 0.22) 0%, rgba(11, 19, 32, 1) 75%);
+}
+
+[data-theme="maersk-sky-blue"] {
+  /* Theme 16: Maersk Style (Iconic Sky Blue & Deep Cyan) */
+  --bg-primary: #03182b;
+  --bg-secondary: #082846;
+  --bg-card: #082846;
+  --bg-card-hover: #0c365e;
+  --border-color: #38bdf8;
+  --border-glow: rgba(56, 189, 248, 0.6);
+  
+  --text-main: #f0f9ff;
+  --text-muted: #bae6fd;
+  --text-inverse: #03182b;
+  
+  --accent-primary: #0284c7;
+  --accent-hover: #0369a1;
+  --accent-light: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.35);
+  --accent-secondary: #7dd3fc;
+  
+  --badge-bg: rgba(56, 189, 248, 0.18);
+  --badge-text: #7dd3fc;
+  --badge-border: #38bdf8;
+  
+  --glass-bg: rgba(3, 24, 43, 0.92);
+  --glass-border: rgba(56, 189, 248, 0.4);
+  --shadow-main: 0 10px 25px -5px rgba(56, 189, 248, 0.2);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.22) 0%, rgba(3, 24, 43, 1) 75%);
+}
+
+[data-theme="fedex-purple-orange"] {
+  /* Theme 17: FedEx Express Style (Purple & Cargo Orange) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #faf5ff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f3e8ff;
+  --border-color: #c084fc;
+  --border-glow: rgba(249, 115, 22, 0.5);
+  
+  --text-main: #3b0764;
+  --text-muted: #581c87;
+  --text-inverse: #ffffff;
+  
+  --accent-primary: #6b21a8;
+  --accent-hover: #581c87;
+  --accent-light: #ea580c;
+  --accent-glow: rgba(234, 88, 12, 0.25);
+  --accent-secondary: #f97316;
+  
+  --badge-bg: #fff7ed;
+  --badge-text: #c2410c;
+  --badge-border: #ffedd5;
+  
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(192, 132, 252, 0.8);
+  --shadow-main: 0 10px 25px -5px rgba(107, 33, 168, 0.12);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(255, 237, 213, 0.7) 0%, rgba(250, 245, 255, 1) 75%);
+}
+
+[data-theme="dsv-steel-minimal"] {
+  /* Theme 18: DSV Style (Danish Minimalist Steel & Silver) */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --bg-card-hover: #334155;
+  --border-color: #64748b;
+  --border-glow: rgba(148, 163, 184, 0.5);
+  
+  --text-main: #f8fafc;
+  --text-muted: #cbd5e1;
+  --text-inverse: #0f172a;
+  
+  --accent-primary: #475569;
+  --accent-hover: #334155;
+  --accent-light: #94a3b8;
+  --accent-glow: rgba(148, 163, 184, 0.3);
+  --accent-secondary: #38bdf8;
+  
+  --badge-bg: rgba(148, 163, 184, 0.15);
+  --badge-text: #cbd5e1;
+  --badge-border: #94a3b8;
+  
+  --glass-bg: rgba(15, 23, 42, 0.92);
+  --glass-border: rgba(100, 116, 139, 0.4);
+  --shadow-main: 0 10px 25px -5px rgba(100, 116, 139, 0.2);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(148, 163, 184, 0.2) 0%, rgba(15, 23, 42, 1) 75%);
+}
+
+[data-theme="ch-robinson-amber"] {
+  /* Theme 19: C.H. Robinson Style (Midnight Navy & Sunburst Amber) */
+  --bg-primary: #091322;
+  --bg-secondary: #111f36;
+  --bg-card: #111f36;
+  --bg-card-hover: #1a2c4b;
+  --border-color: #d97706;
+  --border-glow: rgba(245, 158, 11, 0.6);
+  
+  --text-main: #fffbeb;
+  --text-muted: #fde68a;
+  --text-inverse: #091322;
+  
+  --accent-primary: #d97706;
+  --accent-hover: #b45309;
+  --accent-light: #f59e0b;
+  --accent-glow: rgba(245, 158, 11, 0.35);
+  --accent-secondary: #fbbf24;
+  
+  --badge-bg: rgba(217, 119, 6, 0.18);
+  --badge-text: #fde68a;
+  --badge-border: #f59e0b;
+  
+  --glass-bg: rgba(9, 19, 34, 0.92);
+  --glass-border: rgba(217, 119, 6, 0.4);
+  --shadow-main: 0 10px 25px -5px rgba(245, 158, 11, 0.2);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.2) 0%, rgba(9, 19, 34, 1) 75%);
+}
+
+[data-theme="ceva-cobalt-white"] {
+  /* Theme 20: CEVA Logistics Style (Clean Swiss White & Electric Cobalt) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #eff6ff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #dbeafe;
+  --border-color: #93c5fd;
+  --border-glow: rgba(37, 99, 235, 0.4);
+  
+  --text-main: #1e3a8a;
+  --text-muted: #1d4ed8;
+  --text-inverse: #ffffff;
+  
+  --accent-primary: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-light: #3b82f6;
+  --accent-glow: rgba(37, 99, 235, 0.25);
+  --accent-secondary: #60a5fa;
+  
+  --badge-bg: #eff6ff;
+  --badge-text: #1d4ed8;
+  --badge-border: #bfdbfe;
+  
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(147, 197, 253, 0.8);
+  --shadow-main: 0 10px 25px -5px rgba(37, 99, 235, 0.12);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(219, 234, 254, 0.8) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+[data-theme="geodis-burgundy"] {
+  /* Theme 21: GEODIS Style (French Burgundy & Coral Sun) */
+  --bg-primary: #180911;
+  --bg-secondary: #27101c;
+  --bg-card: #27101c;
+  --bg-card-hover: #3a182b;
+  --border-color: #9f1239;
+  --border-glow: rgba(225, 29, 72, 0.6);
+  
+  --text-main: #fff1f2;
+  --text-muted: #fecdd3;
+  --text-inverse: #180911;
+  
+  --accent-primary: #be123c;
+  --accent-hover: #9f1239;
+  --accent-light: #fb7185;
+  --accent-glow: rgba(251, 113, 133, 0.35);
+  --accent-secondary: #fda4af;
+  
+  --badge-bg: rgba(190, 18, 60, 0.18);
+  --badge-text: #fecdd3;
+  --badge-border: #fb7185;
+  
+  --glass-bg: rgba(24, 9, 17, 0.92);
+  --glass-border: rgba(159, 18, 57, 0.4);
+  --shadow-main: 0 10px 25px -5px rgba(251, 113, 133, 0.2);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(251, 113, 133, 0.2) 0%, rgba(24, 9, 17, 1) 75%);
+}
+
+[data-theme="pacific-ocean-mint"] {
+  /* Theme 22: Pacific Ocean / Sinotrans Style (Pacific Blue & Emerald Mint) */
+  --bg-primary: #041d2d;
+  --bg-secondary: #082d44;
+  --bg-card: #082d44;
+  --bg-card-hover: #0c3e5e;
+  --border-color: #10b981;
+  --border-glow: rgba(16, 185, 129, 0.6);
+  
+  --text-main: #ecfdf5;
+  --text-muted: #a7f3d0;
+  --text-inverse: #041d2d;
+  
+  --accent-primary: #0284c7;
+  --accent-hover: #0369a1;
+  --accent-light: #10b981;
+  --accent-glow: rgba(16, 185, 129, 0.35);
+  --accent-secondary: #34d399;
+  
+  --badge-bg: rgba(16, 185, 129, 0.18);
+  --badge-text: #a7f3d0;
+  --badge-border: #34d399;
+  
+  --glass-bg: rgba(4, 29, 45, 0.92);
+  --glass-border: rgba(16, 185, 129, 0.4);
+  --shadow-main: 0 10px 25px -5px rgba(16, 185, 129, 0.2);
+  
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.2) 0%, rgba(4, 29, 45, 1) 75%);
+}
+
 /* --------------------------------------------------------------------------
    2. Reset & Core Base Styles
    -------------------------------------------------------------------------- */
