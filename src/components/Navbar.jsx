@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
-import { Phone, Calculator, Menu, X, Clock } from 'lucide-react';
+import { Phone, Calculator, Menu, X, Clock, Home, Truck, MapPin, Info, Mail } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 
-export default function Navbar({ currentLang, setLang, t, onOpenQuote }) {
+export default function Navbar({ currentLang, setLang, t, activeTab, setActiveTab, onOpenQuote }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const logoUrl = `${import.meta.env.BASE_URL}logo.png?v=clean2`;
+
+  const handleTabClick = (tabKey) => {
+    setActiveTab(tabKey);
+    setMobileOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.location.hash = tabKey;
+  };
 
   return (
     <header className="site-header">
@@ -32,7 +39,7 @@ export default function Navbar({ currentLang, setLang, t, onOpenQuote }) {
       <div className="main-navbar-row">
         <div className="navbar-container">
           {/* Brand Logo & Name */}
-          <a href="#" className="brand-logo-container">
+          <a href="#home" className="brand-logo-container" onClick={() => handleTabClick('home')}>
             <img 
               src={logoUrl} 
               alt="GalCargo Logo" 
@@ -45,14 +52,44 @@ export default function Navbar({ currentLang, setLang, t, onOpenQuote }) {
             </div>
           </a>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Tabs */}
           <nav className="nav-menu desktop-only">
-            <a href="#hero" className="nav-link">{t('nav_home')}</a>
-            <a href="#services" className="nav-link">{t('nav_services')}</a>
-            <a href="#calculator" className="nav-link">{t('nav_calc')}</a>
-            <a href="#geography" className="nav-link">{t('nav_geo')}</a>
-            <a href="#about" className="nav-link">{t('nav_about')}</a>
-            <a href="#contacts" className="nav-link">{t('nav_contacts')}</a>
+            <button 
+              className={`nav-link ${activeTab === 'home' ? 'active' : ''}`} 
+              onClick={() => handleTabClick('home')}
+            >
+              {t('nav_home')}
+            </button>
+            <button 
+              className={`nav-link ${activeTab === 'services' ? 'active' : ''}`} 
+              onClick={() => handleTabClick('services')}
+            >
+              {t('nav_services')}
+            </button>
+            <button 
+              className={`nav-link ${activeTab === 'calculator' ? 'active' : ''}`} 
+              onClick={() => handleTabClick('calculator')}
+            >
+              {t('nav_calc')}
+            </button>
+            <button 
+              className={`nav-link ${activeTab === 'routes' ? 'active' : ''}`} 
+              onClick={() => handleTabClick('routes')}
+            >
+              {t('nav_geo')}
+            </button>
+            <button 
+              className={`nav-link ${activeTab === 'about' ? 'active' : ''}`} 
+              onClick={() => handleTabClick('about')}
+            >
+              {t('nav_about')}
+            </button>
+            <button 
+              className={`nav-link ${activeTab === 'contacts' ? 'active' : ''}`} 
+              onClick={() => handleTabClick('contacts')}
+            >
+              {t('nav_contacts')}
+            </button>
           </nav>
 
           {/* Action Buttons & Mobile Hamburger Toggle */}
@@ -84,7 +121,7 @@ export default function Navbar({ currentLang, setLang, t, onOpenQuote }) {
         <div className="mobile-nav-overlay">
           <div className="mobile-nav-drawer">
             <div className="mobile-nav-header">
-              <a href="#" className="brand-logo-container" onClick={() => setMobileOpen(false)}>
+              <a href="#home" className="brand-logo-container" onClick={() => handleTabClick('home')}>
                 <img src={logoUrl} alt="GalCargo Logo" className="brand-logo-img" />
                 <div className="brand-text-block">
                   <span className="brand-name">Гал Карго</span>
@@ -102,12 +139,42 @@ export default function Navbar({ currentLang, setLang, t, onOpenQuote }) {
             </div>
 
             <nav className="mobile-nav-links">
-              <a href="#hero" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>{t('nav_home')}</a>
-              <a href="#services" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>{t('nav_services')}</a>
-              <a href="#calculator" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>{t('nav_calc')}</a>
-              <a href="#geography" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>{t('nav_geo')}</a>
-              <a href="#about" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>{t('nav_about')}</a>
-              <a href="#contacts" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>{t('nav_contacts')}</a>
+              <button 
+                className={`mobile-nav-link ${activeTab === 'home' ? 'active' : ''}`} 
+                onClick={() => handleTabClick('home')}
+              >
+                {t('nav_home')}
+              </button>
+              <button 
+                className={`mobile-nav-link ${activeTab === 'services' ? 'active' : ''}`} 
+                onClick={() => handleTabClick('services')}
+              >
+                {t('nav_services')}
+              </button>
+              <button 
+                className={`mobile-nav-link ${activeTab === 'calculator' ? 'active' : ''}`} 
+                onClick={() => handleTabClick('calculator')}
+              >
+                {t('nav_calc')}
+              </button>
+              <button 
+                className={`mobile-nav-link ${activeTab === 'routes' ? 'active' : ''}`} 
+                onClick={() => handleTabClick('routes')}
+              >
+                {t('nav_geo')}
+              </button>
+              <button 
+                className={`mobile-nav-link ${activeTab === 'about' ? 'active' : ''}`} 
+                onClick={() => handleTabClick('about')}
+              >
+                {t('nav_about')}
+              </button>
+              <button 
+                className={`mobile-nav-link ${activeTab === 'contacts' ? 'active' : ''}`} 
+                onClick={() => handleTabClick('contacts')}
+              >
+                {t('nav_contacts')}
+              </button>
             </nav>
 
             <div className="mobile-nav-actions">
