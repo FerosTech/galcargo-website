@@ -1,51 +1,51 @@
 import React, { useState } from 'react';
-import { Truck, Anchor, Train, ShieldCheck, FileText, ArrowRight, CheckCircle2, Package, Warehouse } from 'lucide-react';
+import { Train, Wheat, Truck, Anchor, Warehouse, ShieldCheck, CheckCircle2, ArrowRight, Package } from 'lucide-react';
 
 export default function ServicesPage({ t, onOpenQuote }) {
-  const [activeSubTab, setActiveSubTab] = useState('truck');
+  const [activeSubTab, setActiveSubTab] = useState('grain-hoppers');
 
   return (
     <div className="tab-page-container" style={{ padding: '60px 24px', maxWidth: '1280px', margin: '0 auto' }}>
       <div className="section-header">
-        <span className="section-subtitle">Логістичні рішення B2B</span>
-        <h2 className="section-title">Мультимодальний комплекс послуг "Гал Карго"</h2>
+        <span className="section-subtitle">Спеціалізована Агро & Промислова Логістика</span>
+        <h2 className="section-title">Перевезення пшениці, зерна та оперування напіввагонами</h2>
         <p className="section-desc">
-          Оберіть вид транспорту або комплексне експедирування для розрахунку оптимального маршруту вашої поставки.
+          Комплексний експорт сільськогосподарських та насипних вантажів залізницею, морем та автотранспортом від лінійних елеваторів до морських портів ЄС.
         </p>
       </div>
 
       {/* Services Sub-Tabs */}
       <div className="modes-tabs-header" style={{ gridTemplateColumns: 'repeat(4, 1fr)', marginTop: '30px' }}>
         <button
-          className={`mode-tab-btn ${activeSubTab === 'truck' ? 'active' : ''}`}
-          onClick={() => setActiveSubTab('truck')}
+          className={`mode-tab-btn ${activeSubTab === 'grain-hoppers' ? 'active' : ''}`}
+          onClick={() => setActiveSubTab('grain-hoppers')}
         >
-          <Truck size={20} />
-          <span>Авто перевезення</span>
+          <Wheat size={20} />
+          <span>Зерновози-Хопери</span>
         </button>
 
         <button
-          className={`mode-tab-btn ${activeSubTab === 'sea' ? 'active' : ''}`}
-          onClick={() => setActiveSubTab('sea')}
-        >
-          <Anchor size={20} />
-          <span>Морський фрахт</span>
-        </button>
-
-        <button
-          className={`mode-tab-btn ${activeSubTab === 'rail' ? 'active' : ''}`}
-          onClick={() => setActiveSubTab('rail')}
+          className={`mode-tab-btn ${activeSubTab === 'gondolas' ? 'active' : ''}`}
+          onClick={() => setActiveSubTab('gondolas')}
         >
           <Train size={20} />
-          <span>З/Д поїзди</span>
+          <span>Напіввагони</span>
         </button>
 
         <button
-          className={`mode-tab-btn ${activeSubTab === 'customs' ? 'active' : ''}`}
-          onClick={() => setActiveSubTab('customs')}
+          className={`mode-tab-btn ${activeSubTab === 'auto-grain' ? 'active' : ''}`}
+          onClick={() => setActiveSubTab('auto-grain')}
         >
-          <Warehouse size={20} />
-          <span>Склади & Митниця</span>
+          <Truck size={20} />
+          <span>Авто-Зерновози</span>
+        </button>
+
+        <button
+          className={`mode-tab-btn ${activeSubTab === 'port-elevators' ? 'active' : ''}`}
+          onClick={() => setActiveSubTab('port-elevators')}
+        >
+          <Anchor size={20} />
+          <span>Портові Елеватори</span>
         </button>
       </div>
 
@@ -58,15 +58,15 @@ export default function ServicesPage({ t, onOpenQuote }) {
         padding: '36px',
         boxShadow: 'var(--shadow-main)'
       }}>
-        {activeSubTab === 'truck' && (
+        {activeSubTab === 'grain-hoppers' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <div style={{ padding: '16px', borderRadius: '16px', background: 'var(--badge-bg)', color: 'var(--accent-light)' }}>
-                <Truck size={36} />
+                <Wheat size={36} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)' }}>Автомобільні вантажні перевезення (FTL & LTL)</h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Пряма доставка фурами Euro-6 по Україні, ЄС, СНД та Балканах з GPS-моніторингом</p>
+                <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)' }}>Залізничні Зерновози-Хопери (Пшениця, Кукурудза, Олійні)</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Спеціалізований бункерний рухомий склад для захищеного транспортування зерна без втрат якості</p>
               </div>
             </div>
 
@@ -76,99 +76,50 @@ export default function ServicesPage({ t, onOpenQuote }) {
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none' }}>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
                     <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>FTL (повна завантаження фури) та LTL (збірні дрібні вантажі від 100 кг)</span>
+                    <span>Верхнє завантаження через завантажувальні люки з ущільнювачами від вологи</span>
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
                     <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>Рефрижератори з термописцями (-25°C до +25°C) для фарми та продуктів</span>
+                    <span>Гравітаційне самопливне розвантаження через 6 бункерних шиберів</span>
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
                     <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>Негабаритні трали для важкої сільгосптехніки та обладнання</span>
+                    <span>Маршрутні відправки поїздами (по 54 хопери = 3 800+ тонн пшениці за 1 рейс)</span>
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
                     <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>CMR страхування відповідальності експедитора до €500,000</span>
+                    <span>100% збереження вологості, протеїну та натури пшениці</span>
                   </li>
                 </ul>
               </div>
 
               <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ fontSize: '0.95rem', color: 'var(--text-main)', marginBottom: '12px' }}>Специфікація автопарку:</h4>
+                <h4 style={{ fontSize: '0.95rem', color: 'var(--text-main)', marginBottom: '12px' }}>Специфікація хоперів зерновозів:</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  <div>• Стандартний тент: 86 м³, до 22 тонн (33 європалети)</div>
-                  <div>• Мега-тент (Jumbo): 100 - 120 м³, висота 3.0 м</div>
-                  <div>• Склади консолідації: Львів, Київ, Холм (PL), Перемишль</div>
-                  <div>• Середній транзитний час: 2 - 4 дні (Україна — ЄС)</div>
+                  <div>• Моделі: 19-752, 19-7053 (збільшений кубатурник)</div>
+                  <div>• Корисний об'єм кузова: 116 – 120 м³</div>
+                  <div>• Вантажопідйомність: 70.5 – 72 тонни</div>
+                  <div>• Транзитні маршрути: Лінійний елеватор ➔ Порти Одеса / Гданськ</div>
                 </div>
               </div>
             </div>
 
             <button className="btn-primary" onClick={onOpenQuote} style={{ width: 'fit-content' }}>
-              <span>Замовити розрахунок автоперевезення</span>
+              <span>Забронювати вагони-зерновози</span>
               <ArrowRight size={18} />
             </button>
           </div>
         )}
 
-        {activeSubTab === 'sea' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <div style={{ padding: '16px', borderRadius: '16px', background: 'var(--badge-bg)', color: 'var(--accent-light)' }}>
-                <Anchor size={36} />
-              </div>
-              <div>
-                <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)' }}>Морські контейнерні перевезення (FCL & LCL)</h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Глобальні морські фрахтові лінії через порти Гданськ, Гамбург, Роттердам та Чорне Море</p>
-              </div>
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
-              <div>
-                <h4 style={{ color: 'var(--accent-light)', fontSize: '1rem', marginBottom: '12px' }}>Ключові переваги:</h4>
-                <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none' }}>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
-                    <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>Прямі сервісні контракти з Maersk, MSC, CMA CGM, COSCO, ONE</span>
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
-                    <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>FCL (повний контейнер) та LCL (збірний вантаж у контейнері) з Азії та США</span>
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
-                    <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>Власне внутрипортове експедирування та митне очищення</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ fontSize: '0.95rem', color: 'var(--text-main)', marginBottom: '12px' }}>Типи контейнерів:</h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  <div>• 20' Dry Van: 33.2 м³, payload до 28 тонн</div>
-                  <div>• 40' High Cube: 76.4 м³, payload до 28.5 тонн</div>
-                  <div>• 40' Reefer: Температурний контейнер з холодильною установкою</div>
-                  <div>• Транзит Китай ➔ ЄС: 25 - 35 днів</div>
-                </div>
-              </div>
-            </div>
-
-            <button className="btn-primary" onClick={onOpenQuote} style={{ width: 'fit-content' }}>
-              <span>Замовити розрахунок морського фрахту</span>
-              <ArrowRight size={18} />
-            </button>
-          </div>
-        )}
-
-        {activeSubTab === 'rail' && (
+        {activeSubTab === 'gondolas' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <div style={{ padding: '16px', borderRadius: '16px', background: 'var(--badge-bg)', color: 'var(--accent-light)' }}>
                 <Train size={36} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)' }}>Залізничні контейнерні поїзди (Китай — ЄС — Україна)</h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Оптимальний баланс між швидкістю авіа та вартістю морського фрахту</p>
+                <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)' }}>Вантажні Напіввагони (Люкові та Глуходонні Gondola Cars)</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Оперування парком напіввагонів для насипних вантажів, пшениці в біг-бегах, руди та вугілля</p>
               </div>
             </div>
 
@@ -178,45 +129,45 @@ export default function ServicesPage({ t, onOpenQuote }) {
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none' }}>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
                     <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>Фіксований тижневий розклад відправки з Нінбо, Шанхаю, Сіаня, Ченду</span>
+                    <span>Люкові напіввагони з розвантажувальними люками в підлозі (14 люків)</span>
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
                     <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>Термін транзиту всього 14 - 18 днів до сухих портів у Холмі та Ланьцуті</span>
+                    <span>Нарощені борти для перевезення пшениці, ячменю та соняшнику у тенті</span>
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
                     <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>Економія до 40% коштів у порівнянні з терміновою авіадоставкою</span>
+                    <span>Транспортування фасованої агропродукції в Біг-Бегах (Big-Bags по 1000 кг)</span>
                   </li>
                 </ul>
               </div>
 
               <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ fontSize: '0.95rem', color: 'var(--text-main)', marginBottom: '12px' }}>Характеристики сервісу:</h4>
+                <h4 style={{ fontSize: '0.95rem', color: 'var(--text-main)', marginBottom: '12px' }}>Технічна характеристика напіввагона:</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  <div>• Власні залізничні платформи та криті вагони</div>
-                  <div>• Перевантажувальний термінал: колія 1520 мм ➔ 1435 мм</div>
-                  <div>• Моніторинг дислокації вагона на всій дистанції</div>
+                  <div>• Вантажопідйомність: 69 – 71 тонна</div>
+                  <div>• Об'єм кузова: 76 – 88 м³ (зі знімним укриттям)</div>
+                  <div>• Колія: 1520 мм (УЗ) та переставляння на 1435 мм (PKP)</div>
                 </div>
               </div>
             </div>
 
             <button className="btn-primary" onClick={onOpenQuote} style={{ width: 'fit-content' }}>
-              <span>Замовити З/Д перевезення</span>
+              <span>Отримати графік подачі напіввагонів</span>
               <ArrowRight size={18} />
             </button>
           </div>
         )}
 
-        {activeSubTab === 'customs' && (
+        {activeSubTab === 'auto-grain' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <div style={{ padding: '16px', borderRadius: '16px', background: 'var(--badge-bg)', color: 'var(--accent-light)' }}>
-                <Warehouse size={36} />
+                <Truck size={36} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)' }}>Митне оформлення & Складська логістика</h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Власна брокерська служба та консолідаційні митні склади класу А</p>
+                <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)' }}>Автомобільні Зерновози-Самоскиди (Агро-Самосвали)</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Пряме вивезення пшениці з комбайнів та токів до залізничних станцій або порту</p>
               </div>
             </div>
 
@@ -226,31 +177,79 @@ export default function ServicesPage({ t, onOpenQuote }) {
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none' }}>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
                     <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>Оформлення декларацій T1, EX1, EUR.1, Carnet TIR у найкоротші терміни</span>
+                    <span>Самоскиди з боковим та заднім розвантаженням (об'єм кузова 45-55 м³)</span>
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
                     <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>Акцизні та митно-ліцензійні склади у Львові, Києві, Холмі (PL)</span>
+                    <span>Ущільнені захисні тентові пологи для запобігання видуванню зерна</span>
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
                     <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
-                    <span>Повний комплекс стикування: крос-докінг, палетування, маркування, стрейчування</span>
+                    <span>Подача машин безпосередньо в поле або на фермерські склади</span>
                   </li>
                 </ul>
               </div>
 
               <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ fontSize: '0.95rem', color: 'var(--text-main)', marginBottom: '12px' }}>Митний сервіс:</h4>
+                <h4 style={{ fontSize: '0.95rem', color: 'var(--text-main)', marginBottom: '12px' }}>Характеристики зерновозів:</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  <div>• Цілодобові митні комплекси з охороною</div>
-                  <div>• Сертифіковані митні брокери із досвідом від 10 років</div>
-                  <div>• Попереднє декларування вантажів перед перетином кордону</div>
+                  <div>• Вантажопідйомність: 24 – 26 тонн (в межах вагових норм)</div>
+                  <div>• Алюмінієві та сталеві самоскидні напівпричепи</div>
+                  <div>• GPS трекінг кожної машини з контролем зважування</div>
                 </div>
               </div>
             </div>
 
             <button className="btn-primary" onClick={onOpenQuote} style={{ width: 'fit-content' }}>
-              <span>Отримати консультацію брокера</span>
+              <span>Замовити авто-зерновози</span>
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        )}
+
+        {activeSubTab === 'port-elevators' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <div style={{ padding: '16px', borderRadius: '16px', background: 'var(--badge-bg)', color: 'var(--accent-light)' }}>
+                <Anchor size={36} />
+              </div>
+              <div>
+                <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)' }}>Портові Зернові Елеватори & Морська Перевалка</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Прийом залізничних вагонів, стафіровка у контейнери та навантаження на судна Panamax/Handysize</p>
+              </div>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+              <div>
+                <h4 style={{ color: 'var(--accent-light)', fontSize: '1rem', marginBottom: '12px' }}>Ключові переваги:</h4>
+                <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
+                    <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
+                    <span>Швидке розвантаження залізничних хоперів на портових станціях (до 1000 т/год)</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
+                    <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
+                    <span>Стафіровка пшениці у 20' морські контейнери з вкладками Flexi-Bag / Liner-Bag</span>
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
+                    <CheckCircle2 size={16} style={{ color: 'var(--accent-light)' }} />
+                    <span>Лабораторні сертифікати GAFTA, SGS, сертифікація фітосанітарії та походження</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+                <h4 style={{ fontSize: '0.95rem', color: 'var(--text-main)', marginBottom: '12px' }}>Портові хаби:</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                  <div>• Чорноморські термінали: Одеса, Чорноморськ, Южний</div>
+                  <div>• Балтійські порти: Гданськ, Гдиня, Свіноуйсьце (PL)</div>
+                  <div>• Дунайські порти: Ізмаїл, Рені, Констанца (RO)</div>
+                </div>
+              </div>
+            </div>
+
+            <button className="btn-primary" onClick={onOpenQuote} style={{ width: 'fit-content' }}>
+              <span>Замовити перевалку в порту</span>
               <ArrowRight size={18} />
             </button>
           </div>
