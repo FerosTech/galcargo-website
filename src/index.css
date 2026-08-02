@@ -2604,3 +2604,107 @@ button, input, select, textarea {
     font-size: 0.64rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+   16. Sticky Google Ads High-Conversion Bottom Bar
+   -------------------------------------------------------------------------- */
+.sticky-ads-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: var(--bg-secondary);
+  border-top: 2px solid var(--accent-light);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
+  z-index: 9990;
+  padding: 12px 24px;
+  animation: slideUpSticky 0.3s ease-out;
+  backdrop-filter: blur(12px);
+}
+
+@keyframes slideUpSticky {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.sticky-ads-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sticky-ads-text {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sticky-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--badge-bg);
+  color: var(--accent-light);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--badge-border);
+}
+
+.sticky-title {
+  font-weight: 700;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.sticky-ads-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sticky-btn-main {
+  padding: 8px 18px !important;
+  font-size: 0.88rem !important;
+}
+
+.sticky-phone-btn {
+  padding: 8px 14px !important;
+  font-size: 0.88rem !important;
+}
+
+.sticky-tg-btn {
+  padding: 8px 12px !important;
+}
+
+.sticky-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.sticky-close-btn:hover {
+  color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+  .sticky-title {
+    display: none;
+  }
+  .sticky-ads-container {
+    justify-content: space-between;
+  }
+}

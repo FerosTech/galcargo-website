@@ -11,7 +11,9 @@ import AboutPage from './components/AboutPage';
 import ContactsPage from './components/ContactsPage';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
+import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
+import StickyBottomBar from './components/StickyBottomBar';
 import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
 import TrackingModal from './components/TrackingModal';
@@ -55,15 +57,15 @@ export default function App() {
     localStorage.setItem('galcargo_lang', lang);
   }, [lang]);
 
-  // Dynamic SEO Meta & Title Manager
+  // Dynamic SEO Meta & Title Manager for Google Ads Quality Score
   useEffect(() => {
     const titles = {
-      home: 'Гал карго — Мультимодальна Логістична Компанія | GalCargo',
-      services: 'Послуги Мультимодальних Перевезень (Фури, Море, З/Д) | GalCargo',
-      calculator: 'Калькулятор Фрахту & Розрахунок Перевезення | GalCargo',
-      routes: 'Міжнародні Маршрути та Логістичні Хаби | GalCargo',
-      about: 'Про Компанію, Ліцензії FIATA & ISO | GalCargo',
-      contacts: 'Контакти, Диспетчерська 24/7 та Офіси | GalCargo'
+      home: 'Перевезення пшениці & Напіввагони — Гал Карго | GalCargo Logistics',
+      services: 'Залізничні Зерновози-Хопери та Напіввагони (FTL/LCL) | GalCargo',
+      calculator: 'Калькулятор Перевезення Пшениці та Вагонів Онлайн | GalCargo',
+      routes: 'Агро-Маршрути та Портові Елеватори Одеса, Гданськ | GalCargo',
+      about: 'Оператор Зерновозів №1 • Ліцензії FIATA & ISO 9001 | GalCargo',
+      contacts: 'Контакти Залізничного Відділу 24/7 | GalCargo'
     };
 
     document.title = titles[activeTab] || titles.home;
@@ -140,6 +142,7 @@ export default function App() {
             />
             <Services t={t} onOpenQuote={handleOpenQuote} />
             <Testimonials t={t} />
+            <FAQSection t={t} onOpenQuote={handleOpenQuote} />
             <ContactSection t={t} onOpenQuote={handleOpenQuote} />
           </>
         )}
@@ -161,13 +164,19 @@ export default function App() {
         )}
 
         {activeTab === 'about' && (
-          <AboutPage t={t} onOpenQuote={handleOpenQuote} />
+          <>
+            <AboutPage t={t} onOpenQuote={handleOpenQuote} />
+            <FAQSection t={t} onOpenQuote={handleOpenQuote} />
+          </>
         )}
 
         {activeTab === 'contacts' && (
           <ContactsPage t={t} onOpenQuote={handleOpenQuote} />
         )}
       </main>
+
+      {/* Google Ads Sticky Bottom High-Conversion Bar */}
+      <StickyBottomBar onOpenQuote={handleOpenQuote} />
 
       {/* Footer */}
       <Footer 
